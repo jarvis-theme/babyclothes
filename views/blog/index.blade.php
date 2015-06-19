@@ -42,11 +42,11 @@
                 </div>
             </div>
             @endif
-            @if(count(list_blog()) > 0)
+            @if(count(recentBlog(null,5)) > 0)
             <div id="latest-news" class="block">
                 <div class="title"><h2>Latest News</h2></div>
                 <ul class="block-content">
-                    @foreach(list_blog(5) as $artikel)
+                    @foreach(recentBlog(null,5) as $artikel)
                     <li>
                         <div class="img-block">    
                         </div>

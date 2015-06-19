@@ -42,7 +42,7 @@
                 <div class="tabs-btn-login">
                     <a href="{{url('member/create')}}" class="register btn btn-warning">Register</a>
                 </div>
-            </div>
+            </div><br><br>
             <div class="col-sm-3">
                 <div class="login-wrap">
                     <h2 class="title">Login</h2>
