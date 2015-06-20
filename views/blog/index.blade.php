@@ -80,6 +80,7 @@
                     <article style="font-style:italic; text-align:center;">
                         Blog tidak ditemukan.
                     </article>
+                    <br>
                 @endif
                 </div>
 

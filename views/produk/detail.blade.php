@@ -89,21 +89,21 @@
                     <div id="prod-left" class="col-lg-6 col-xs-12 col-sm-6">
                         <div class="big-image">
                             <img src="{{product_image_url($produk->gambar1)}}" width="374" height="411" alt="" />
-                            <a class="zoom fancybox" href="{{product_image_url($produk->gambar1)}}" title="Big Product">&nbsp;</a>
+                            <a class="zoom fancybox" href="{{product_image_url($produk->gambar1)}}" title="{{$produk->nama}}">&nbsp;</a>
                         </div>
                         <div id="thumb-view">
                             <ul id="thumb-list" class="owl-carousel owl-theme">
                                 @if($produk->gambar1 != '')
-                                <li class="item"><a href="{{product_image_url($produk->gambar1)}}"><img src="{{product_image_url($produk->gambar1,'medium')}}" width="113" height="152" alt="" /></a></li>
+                                <li class="item"><a class="fancybox" href="{{product_image_url($produk->gambar1)}}" tittle="{{$produk->nama}}"><img src="{{product_image_url($produk->gambar1,'medium')}}" width="113" height="152" alt="" /></a></li>
                                 @endif
                                 @if($produk->gambar2 != '')
-                                <li class="item"><a href="{{product_image_url($produk->gambar2)}}"><img src="{{product_image_url($produk->gambar2,'medium')}}" width="113" height="152" alt="" /></a></li>
+                                <li class="item"><a class="fancybox" href="{{product_image_url($produk->gambar2)}}" tittle="{{$produk->nama}}"><img src="{{product_image_url($produk->gambar2,'medium')}}" width="113" height="152" alt="" /></a></li>
                                 @endif
                                 @if($produk->gambar3 != '')
-                                <li class="item"><a href="{{product_image_url($produk->gambar3)}}"><img src="{{product_image_url($produk->gambar3,'medium')}}" width="113" height="152" alt="" /></a></li>
+                                <li class="item"><a class="fancybox" href="{{product_image_url($produk->gambar3)}}" tittle="{{$produk->nama}}"><img src="{{product_image_url($produk->gambar3,'medium')}}" width="113" height="152" alt="" /></a></li>
                                 @endif
                                 @if($produk->gambar4 != '')
-                                <li class="item"><a href="{{product_image_url($produk->gambar4)}}"><img src="{{product_image_url($produk->gambar4,'medium')}}" width="113" height="152" alt="" /></a></li>
+                                <li class="item"><a class="fancybox" href="{{product_image_url($produk->gambar4)}}" tittle="{{$produk->nama}}"><img src="{{product_image_url($produk->gambar4,'medium')}}" width="113" height="152" alt="" /></a></li>
                                 @endif
                             </ul>
                         </div>

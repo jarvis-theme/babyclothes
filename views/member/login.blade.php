@@ -30,7 +30,7 @@
 
     <div class="login-page">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-6 marginbottom">
                 <div class="login-desc">
                     <h2 class="title">Pendaftaran</h2>
                     <h4>Daftar untuk mendapatkan keuntungan :</h4>
@@ -42,7 +42,7 @@
                 <div class="tabs-btn-login">
                     <a href="{{url('member/create')}}" class="register btn btn-warning">Register</a>
                 </div>
-            </div><br><br>
+            </div>
             <div class="col-sm-3">
                 <div class="login-wrap">
                     <h2 class="title">Login</h2>

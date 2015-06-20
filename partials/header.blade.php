@@ -9,10 +9,10 @@
     <div class="info">
         @if ( ! is_login() )
             <span>Selamat berbelanja</span><span class="divide"></span>
-            <span> {{ HTML::link('member', 'Login') }} |</span><span class="divide"></span>
-            <span>{{ HTML::link('member/create', 'Register') }}</span>
+            <span> {{ HTML::link('member', 'Login',array('class'=>'loginRegLout')) }} |</span><span class="divide"></span>
+            <span>{{ HTML::link('member/create', 'Register',array('class'=>'loginRegLout')) }}</span>
         @else
-            <span>Hai, {{ HTML::link('member', user()->nama) }} <span class="divide"></span><span>| {{HTML::link('logout', 'Logout')}}</span>
+            <span>Hai, {{ HTML::link('member', user()->nama,array('class'=>'loginRegLout')) }} <span class="divide"></span><span>| {{HTML::link('logout', 'Logout',array('class'=>'loginRegLout'))}}</span>
         @endif
     </div>
     <!-- MENU - START -->
@@ -31,7 +31,6 @@
                     @foreach(main_menu()->link as $key=>$link)
                     <li><a href="{{menu_url($link)}}">{{$link->nama}}</a></li>
                     @endforeach
-
                 </ul> 
                 <div class="pull-right search-form">
                     <form class="navbar-form" role="search" action="{{url('search')}}" method="post">

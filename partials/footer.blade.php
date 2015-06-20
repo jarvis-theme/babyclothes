@@ -6,7 +6,7 @@
         <div class="col-sm-7 text-testi flexslider">
             <ul class="slides">
                 @foreach(list_testimonial() as $key=>$value)
-                <li>{{short_description($value->isi,136)}} <strong>:{{$value->nama}}</strong></li>
+                <li>{{short_description($value->isi,136)}} <strong> : {{$value->nama}}</strong></li>
                 @endforeach
             </ul>
         </div>
