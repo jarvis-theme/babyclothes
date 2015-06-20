@@ -1,7 +1,7 @@
 <footer>
     <div id="testimonial">
         <div class="img-testimonial col-sm-4">
-            <img class="img-responsive" src="{{url(dirTemaToko().'babyshop/assets/images/img-testimonial.png')}}" alt="" width="382" height="115" />
+            <img class="img-responsive" src="{{url(dirTemaToko().'babyclothes/assets/images/img-testimonial.png')}}" alt="" width="382" height="115" />
         </div>
         <div class="col-sm-7 text-testi flexslider">
             <ul class="slides">

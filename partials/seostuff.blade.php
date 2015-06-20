@@ -11,6 +11,4 @@
 <meta name="DC.Title" content="{{$title}}">
 <meta name="DC.Subject" content="{{$keywords}}">
 <meta name="DC.Description" content="{{$description}}">
-<link rel="babyshop-theme" href="{{dirTemaToko()}}babyshop/">
-
-
+<link rel="babyclothes-theme" href="{{dirTemaToko()}}babyclothes/">
