@@ -736,7 +736,7 @@ input#qty {
 
 #related-product ul.grid li {text-align:center; }
 #related-product ul.grid li .prod-container {min-height:340px; border:none; box-shadow:none}
-#related-product ul.grid li .image-container {border:none; margin:0 0 20px; padding:0}
+#related-product ul.grid li .image-container {border:none; margin:0 0 20px; padding:0;height: 189px}
 #related-product ul.grid li .price {color:#000; font-weight:bold}
 ul.grid li .view {
 	background: #22d8df none repeat scroll 0 0;
