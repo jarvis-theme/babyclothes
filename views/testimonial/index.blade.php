@@ -25,16 +25,39 @@
     </div>
     <div class="inner-column row">
         <div id="left_sidebar" class="col-lg-3 col-xs-12 col-sm-4">
-            @if(count(list_blog_category()) > 0)
+            @if(count(list_category()) > 0)
             <div id="categories" class="block">
                 <div class="title"><h2>Categories</h2></div>
-                 <ul class="block-content">
-                @foreach(list_blog_category() as $kat)
-                @if(!empty($kat->nama))        
-                <li>
-                    <a href="{{blog_category_url($kat)}}">{{$kat->nama}} </a>
-                </li>
-                @endif
+                <ul class="block-content">
+                 @foreach(list_category() as $side_menu)
+                    @if($side_menu->parent == '0')
+                    <li>
+                        <a href="{{category_url($side_menu)}}">{{short_description($side_menu->nama,20)}}
+                        </a>
+                        @if($side_menu->anak->count() != 0)
+                        <ul class="block1">
+                            @foreach($side_menu->anak as $submenu)
+                                @if($submenu->parent == $side_menu->id)
+                                <li>
+                                    <a href="{{category_url($submenu)}}">{{short_description($submenu->nama,20)}}</a>
+                                    @if($submenu->anak->count() != 0)
+                                    <ul class="block2">
+                                        @foreach($submenu->anak as $submenu2)
+                                        @if($submenu2->parent == $submenu->id)
+                                        <li>
+                                            <a href="{{category_url($submenu2)}}">{{short_description($submenu2->nama,20)}}</a>
+                                        </li>
+                                        @endif
+                                        @endforeach
+                                    </ul>
+                                    @endif
+                                </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                        @endif
+                    </li>
+                    @endif
                  @endforeach
                 </ul>
             </div>

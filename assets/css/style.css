@@ -212,7 +212,7 @@ nav#menu .navbar-form button {
     text-shadow: 0 1px 1px #fff;
     width: 41px;
 }
-nav#menu .navbar-form button:hover {background:#f3906c; color:#fff}
+nav#menu .navbar-form button:hover {/*background:#f3906c;*/ color:#fff}
 
 /*Breadcrumb*/
 .breadcrumb {
@@ -975,6 +975,7 @@ footer .copyright p {margin:0}
 	.btm-details img {margin-bottom:20px}
 	.product_home .block-title h2 {float:none}
 	.product_home .view-shop {float:none; display:inline-block}
+    .btm-details img { width: auto; }
 }
 @media only screen and (max-width: 400px) {
 	#search-top .navbar-form input.form-control {width:150px;}
@@ -1125,5 +1126,4 @@ div.col-sm-6.marginbottom{
     margin-bottom: 27px;
 }
 
-
-
+.bank-logo > img { margin-bottom: 10px; }
