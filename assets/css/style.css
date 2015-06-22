@@ -85,7 +85,7 @@ a:hover, a:focus {outline:none; text-decoration:none; color:#000}
 .clr{
 	clear: both;
 }
-.fl {float:left}
+.fl {float:left;margin-left: 15px;}
 .fr {float:right}
 b, strong {
     font-weight: 600;
@@ -700,7 +700,7 @@ input#qty {
 .attribute .form-group label {text-align:right;}
 .attribute .form-group .form-control {border-radius:3px; padding:0 5px}
 
-.product-details .btm-details {background: #e0efc3;margin: 10px -15px 30px;padding: 20px 20px 0;text-align: center;}
+.product-details .btm-details {background: #e0efc3;margin: 10px -15px 30px;padding: 20px 20px;text-align: center;}
 .product-details .btm-details .bank-logo {margin-bottom:20px;}
 .product-details .btm-details .button-detail {text-align:center}
 .product-details .btm-details .btn {
@@ -1126,4 +1126,14 @@ div.col-sm-6.marginbottom{
     margin-bottom: 27px;
 }
 
-.bank-logo > img { margin-bottom: 10px; }
+.bank-logo > img { 
+  margin-top: 10px;
+ }
+input.form-control.lp
+{
+    width: 70%;
+}
+span.input-group-btn.btnlp
+{
+    float: left;
+}

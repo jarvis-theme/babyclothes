@@ -36,8 +36,8 @@
                 <h2 class="title">Lupa Password</h2><hr><br>
                 <div class="input-group">
                     <form class="form-horizontal" action="{{url('member/forgetpassword')}}" method="post">
-                        <input type="email" class="form-control" placeholder="Email" name='recoveryEmail' required>
-                        <span class="input-group-btn">
+                        <input type="email" class="form-control lp" placeholder="Email" name='recoveryEmail' required>
+                        <span class="input-group-btn btnlp">
                             <button class="btn btn-warning" type="submit">Reset Password</button>
                         </span>
                     </form>
