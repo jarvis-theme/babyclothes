@@ -167,19 +167,6 @@
                         <div class="clr"></div>
                     </div><!--.row-->
                     <div class="btm-details row">
-                        <div class="bank-logo col-sm-8">
-                            @foreach(list_banks() as $value)
-                            <img src="{{bank_logo($value)}}" class="img-responsive">
-                            @endforeach
-                            @foreach(list_payments() as $pay)
-                                @if($pay->nama == 'ipaymu' && $pay->aktif == 1)
-                                <img class="img-responsive" src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" />
-                                @endif
-                            @endforeach
-                            @if(count(list_dokus()) > 0 && list_dokus()->status == 1)
-                            <img class="img-responsive" src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" />
-                            @endif
-                        </div>
                         <div class="button-detail fr">
                             <button class="btn addtocart baddtocart btn-checkout chart" type="submit"><i class="cart"></i>Add to cart</button>
                         </div>

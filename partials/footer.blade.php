@@ -39,6 +39,19 @@
             {{ Theme::partial('subscribe') }}
         </div>
         <div class="row sosial">
+            <div class="bank-logo col-sm-8">
+                @foreach(list_banks() as $value)
+                <img src="{{bank_logo($value)}}" class="img-responsive">
+                @endforeach
+                @foreach(list_payments() as $pay)
+                    @if($pay->nama == 'ipaymu' && $pay->aktif == 1)
+                    <img class="img-responsive" src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" />
+                    @endif
+                @endforeach
+                @if(count(list_dokus()) > 0 && list_dokus()->status == 1)
+                <img class="img-responsive" src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" />
+                @endif
+            </div>
             <div class="social-media">
                 @if(!empty($kontak->fb))
                 <a href="{{url($kontak->fb)}}">
