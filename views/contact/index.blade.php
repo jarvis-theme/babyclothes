@@ -9,7 +9,7 @@
         <div id="left_sidebar" class="col-lg-3 col-xs-12 col-sm-4">
             @if(count(list_category()) > 0)
             <div id="categories" class="block">
-                <div class="title"><h2>Categories</h2></div>
+                <div class="title"><h2>Kategori</h2></div>
                  <ul class="block-content">
                  @foreach(list_category() as $side_menu)
                     @if($side_menu->parent == '0')
@@ -46,13 +46,13 @@
             @endif
             @if(count(best_seller()) > 0)
             <div id="best-seller" class="block">
-                <div class="title"><h2>Best Seller</h2></div>
+                <div class="title"><h2>Produk Terlaris</h2></div>
                 <ul class="block-content">
                     @foreach(best_seller() as $bestproduk )
                     <li>
                         <a href="{{product_url($bestproduk)}}">
                             <div class="img-block">
-                                {{HTML::image(product_image_url($bestproduk->gambar1),'',array('width'=>'81','height'=>'64'))}}
+                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'),'best seller',array('width'=>'81','height'=>'64'))}}
                             </div>
                             <p class="product-name">{{short_description($bestproduk->nama,12)}}</p>
                             <p class="price">{{price($bestproduk->hargaJual)}}</p> 
@@ -61,20 +61,20 @@
                     @endforeach
                 </ul>
                 <div class="btn-more">
-                    <a href="{{url::to('produk')}}">view more >></a>
+                    <a href="{{url::to('produk')}}">produk lainnya >></a>
                 </div>
             </div>
             @endif
             @if(count(list_blog()) > 0)
             <div id="latest-news" class="block">
-                <div class="title"><h2>Latest News</h2></div>
+                <div class="title"><h2>Artikel Terbaru</h2></div>
                 <ul class="block-content">
                     @foreach(list_blog(5) as $artikel)
                     <li>
                         <div class="img-block">    
                         </div>
                         <h5 class="title-news">{{short_description($artikel->judul, 20)}}</h5>
-                        <p>{{short_description($artikel->isi, 46)}} <a class="read-more" href="{{blog_url($artikel)}}">Read More</a></p>
+                        <p>{{short_description($artikel->isi, 46)}} <a class="read-more" href="{{blog_url($artikel)}}">Selengkapnya</a></p>
                         <span class="date-post">{{date("F d, Y", strtotime($artikel->created_at))}}</span>
                     </li>
                     @endforeach
@@ -99,10 +99,10 @@
                     <div class="contact-us" >
                         <div class="contact-desc">
                             @if(!empty($kontak->alamat))
-                                <strong>Shop Address :</strong> {{$kontak->alamat}}<br>
+                                <strong>Alamat Toko :</strong> {{$kontak->alamat}}<br>
                             @endif
                             @if(!empty($kontak->telepon))
-                                <strong>Phone :</strong> {{$kontak->telepon}}<br>
+                                <strong>Telepon :</strong> {{$kontak->telepon}}<br>
                             @endif
                             @if(!empty($kontak->hp))
                                 <strong>HP :</strong> {{$kontak->hp}}<br>
@@ -115,8 +115,7 @@
                             @endif
                             <div class="clr"></div>
                         </div>
-                        <br>
-                        <br>
+                        <br><br>
                         <div class="col-md-6 kontak">
                             <form class="contact-form" action="{{url('kontak')}}" method="post">
                                 <p class="form-group">
@@ -128,13 +127,12 @@
                                 <p class="form-group">
                                 <textarea class="form-control" placeholder="Message" name="messageKontak" required></textarea>
                                 </p>
-                                <button class="btn btn-warning submitnewletter">Send</button><br><br>
+                                <button class="btn btn-warning submitnewletter">Kirim</button><br><br>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div> <!--.center_column-->
     </div><!--.inner-column-->  
 </section>

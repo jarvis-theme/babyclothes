@@ -239,7 +239,7 @@ nav#menu .navbar-form button:hover {/*background:#f3906c;*/ color:#fff}
 /*Sidebar*/
 #left_sidebar {}
 #left_sidebar .block{
-	margin-bottom:0;
+	margin-bottom:10px;
 	box-shadow:0 1px 3px 1px #ade6ea;
 	background:#fff;
 	border:1px solid #ade6ea
@@ -351,7 +351,7 @@ nav#menu .navbar-form button:hover {/*background:#f3906c;*/ color:#fff}
 
 /*Main Content*/
 #main-content {padding:0}
-.inner-bg {background: #fff;border: 1px solid #ade6ea; border-top:7px solid #ffe02f; border-bottom:7px solid #ffe02f; box-shadow: 0 1px 3px 1px #ade6ea; padding-top:20px;}
+.inner-bg {background: #fff;border: 1px solid #ade6ea; border-top:7px solid #ffe02f; border-bottom:7px solid #ffe02f; box-shadow: 0 1px 3px 1px #ade6ea; padding:20px;}
 #bg-slider {background:url("../images/shadow-slider.png") no-repeat scroll center bottom;padding-bottom: 37px;}
 #bg-slider #da-slider {padding:0;}
 #bg-slider .flex-direction-nav .flex-prev::before,#bg-slider .flex-direction-nav .flex-next::before{display:none}
@@ -1005,8 +1005,10 @@ ul.block1 li a
 }
 img.img-responsive
 {
-    float: left;
+    /*float: left;*/
+    display: inline-block;
     margin-right: 10px;
+    width: auto;
 }
 iframe#twitter-widget-0
 {
@@ -1118,12 +1120,16 @@ h2.title
         margin-bottom: 52px;
     }
 }
-
-a.loginRegLout{
-    color: #333;
+a.loginRegLout,.loginRegLout{
+    color: #65C423;
 }
 div.col-sm-6.marginbottom{
     margin-bottom: 27px;
 }
-
 .bank-logo > img { margin-bottom: 10px; }
+.welcome{color: #EF519D;}
+@media only screen and (min-device-width : 800px){
+    .info{float: right;}
+}
+.info{text-align: center;}
+#reviews{border-bottom: 1px solid #ccc;margin-bottom: 20px;}

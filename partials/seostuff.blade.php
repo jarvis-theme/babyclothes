@@ -1,3 +1,5 @@
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 <title>{{$title}}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="{{$description}}">
@@ -11,4 +13,4 @@
 <meta name="DC.Title" content="{{$title}}">
 <meta name="DC.Subject" content="{{$keywords}}">
 <meta name="DC.Description" content="{{$description}}">
-<link rel="babyclothes-theme" href="{{dirTemaToko()}}babyclothes/">
+<meta name="theme_path" content="{{theme_path()}}">

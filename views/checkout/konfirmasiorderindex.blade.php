@@ -1,10 +1,3 @@
-<div class="container">
-@if(Session::has('message'))
-<div class="error" id='message' style='display:none'>
-	<p>Maaf, kode order anda tidak ditemukan.</p>					
-</div>		
-@endif
-
 <section id="main-content">
     <div class="breadcrumb">
         <div>
@@ -24,5 +17,4 @@
 			<br>
         </div> <!--.center_column-->
     </div><!--.inner-column-->
-    
 </section>

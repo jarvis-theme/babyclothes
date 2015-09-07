@@ -1,19 +1,3 @@
-@if(Session::has('error'))
-    <div class="error" id='message' style='display:none'>
-        {{Session::get('error')}}
-    </div>
-@endif
-@if(Session::has('success'))
-    <div class="success" id='message' style='display:none'>
-        <p>Selamat, anda sudah berhasil register. Silakan check email untuk mengetahui informasi akun anda.</p>
-    </div>
-@endif
-@if(Session::has('errorrecovery'))
-    <div class="error" id='message' style='display:none'>
-        <p>Maaf, email anda tidak ditemukan.</p>
-    </div>
-@endif  
-
 <div class="inner-column row padd">
     <div id="center_column" class="inner-bg col-lg-12 col-xs-12 col-sm-8">
         <div class="col-xs-12 col-sm-8 col-lg-9">
