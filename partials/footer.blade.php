@@ -45,7 +45,6 @@
                     <div class="icon" title="Facebook">
                         <i class="fa fa-facebook"></i>
                     </div>
-<<<<<<< HEAD
                 </a>
                 @endif
                 @if(!empty($kontak->tw))
@@ -83,72 +82,6 @@
                     </div>
                 </a>
                 @endif
-=======
-                    @endif
-                @endforeach
-                {{ Theme::partial('subscribe') }}
-            </div>
-            <div class="row sosial">
-             <div class="bank-logo fl">
-                @foreach(list_banks() as $value)
-                <img src="{{bank_logo($value)}}" class="img-responsive">
-                @endforeach
-                @foreach(list_payments() as $pay)
-                    @if($pay->nama == 'ipaymu' && $pay->aktif == 1)
-                    <img class="img-responsive" src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" />
-                    @endif
-                @endforeach
-                @if(count(list_dokus()) > 0 && list_dokus()->status == 1)
-                <img class="img-responsive" src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" />
-                @endif
-                </div>
-        <div class="social-media">
-          @if(!empty($kontak->fb))
-          <a href="{{url($kontak->fb)}}">
-            <div class="icon" title="Facebook">
-              <i class="fa fa-facebook"></i>
-            </div>
-          </a>
-          @endif
-          @if(!empty($kontak->tw))
-          <a href="{{url($kontak->tw)}}">
-            <div class="icon" title="Twitter">
-              <i class="fa fa-twitter"></i>
-            </div>
-          </a>
-          @endif
-          @if(!empty($kontak->gp))
-          <a href="{{url($kontak->gp)}}">
-            <div class="icon" title="Google Plus">
-              <i class="fa fa-google-plus"></i>
-            </div>
-          </a>
-          @endif
-          @if(!empty($kontak->pt))
-          <a href="{{url($kontak->pt)}}">
-            <div class="icon" title="Pinterest">
-              <i class="fa fa-pinterest"></i>
-            </div>
-          </a>
-          @endif
-          @if(!empty($kontak->tl))
-          <a href="{{url($kontak->tl)}}">
-            <div class="icon" title="Tumblr">
-              <i class="fa fa-tumblr"></i>
-            </div>
-          </a>
-          @endif
-          @if(!empty($kontak->ig))
-          <a href="{{url($kontak->ig)}}">
-            <div class="icon" title="Instagram">
-              <i class="fa fa-instagram"></i>
-            </div>
-          </a>
-          @endif
-          
-      </div>
-
->>>>>>> cb6ac2059a92734447190a84f19e7af0173b99a2
             </div>
         </div>
     </div>

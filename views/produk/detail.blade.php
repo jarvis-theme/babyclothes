@@ -164,7 +164,6 @@
                                 </fieldset>
                             </div>
                         </div>
-<<<<<<< HEAD
                         <div class="clr"></div>
                     </div><!--.row-->
                     <div class="btm-details row">
@@ -185,27 +184,6 @@
                             <button class="btn addtocart baddtocart btn-checkout chart" type="submit"><i class="cart"></i>Add to cart</button>
                         </div>
                         <div class="clr"></div>
-=======
-                    </div>
-                    <div class="clr"></div>
-                </div><!--.row-->
-                <div class="btm-details row">
-                   <!--  <div class="bank-logo fl">
-                         @foreach(list_banks() as $value)
-                        <img src="{{bank_logo($value)}}" class="img-responsive">
-                        @endforeach
-                        @foreach(list_payments() as $pay)
-                            @if($pay->nama == 'ipaymu' && $pay->aktif == 1)
-                            <img class="img-responsive" src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" />
-                            @endif
-                        @endforeach
-                        @if(count(list_dokus()) > 0 && list_dokus()->status == 1)
-                        <img class="img-responsive" src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" />
-                        @endif
-                    </div> -->
-                    <div class="button-detail fr">
-                        <button class="btn addtocart baddtocart btn-checkout chart" type="submit"><i class="cart"></i>Add to cart</button>
->>>>>>> cb6ac2059a92734447190a84f19e7af0173b99a2
                     </div>
                 </form>
             </div><!--.product-details-->
