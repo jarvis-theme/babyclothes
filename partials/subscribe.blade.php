@@ -10,6 +10,4 @@
             <div class="clr"></div>
         </form>
     </div>
-
-   
 </div>

@@ -4,7 +4,7 @@
             @if(@getimagesize(url(logo_image_url())))
             <a href="{{url('home')}}">{{HTML::image(logo_image_url(), 'Logo', array('width'=>'327', 'height'=>'67'))}}</a>
             @else
-            <a href="{{url('home')}}" style="color:#5EC80C"><h1 style="font-family: Planet-Estyle">{{ shortText(Theme::place('title'),26) }}</h1></a>
+            <a href="{{url('home')}}" style="color:#5EC80C"><h1>{{ shortText(Theme::place('title'),26) }}</h1></a>
             @endif
         </div>
         <div id="shoppingcartplace">

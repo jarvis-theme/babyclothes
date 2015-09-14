@@ -14,3 +14,9 @@
 <meta name="DC.Subject" content="{{$keywords}}">
 <meta name="DC.Description" content="{{$description}}">
 <meta name="theme_path" content="{{theme_path()}}">
+<meta property="og:url"           content="{{URL::to('/')}}" />
+<meta property="og:type"          content="{{URL::full()}}" />
+<meta property="og:title"         content="{{$title}}" />
+<meta property="og:description"   content="{{$description}}" />
+<meta property="og:image"         content="{{@$img!='' ? product_image_url($img):''}}" />
+<link rel="canonical" href="{{URL::full()}}">
