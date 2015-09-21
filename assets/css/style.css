@@ -897,9 +897,6 @@ footer .copyright p {margin:0}
 	#testimonial .text-testi {margin:20px 20px 0; width:auto; text-align:center; padding:0}
 	#testimonial .flex-direction-nav a.flex-next {position:relative; padding:0; margin:20px auto}
 }
-@media only screen and (max-width: 960px) {
-	
-}
 @media screen and (max-width: 810px) {
 	header #logo {margin-bottom:30px} 
 	
@@ -960,10 +957,26 @@ footer .copyright p {margin:0}
 	.pagination ul li {float:none; display:inline-block}
 	.product-details .btm-details .button-detail {float:none; margin-bottom:20px;}
 	
-	
 	footer .top-footer {background-position:center top}
-}
 
+    .navbar-header {
+        float: none; }
+    .navbar-toggle {
+        display: block; }
+    .navbar-fixed-top .navbar-collapse, 
+    .navbar-static-top .navbar-collapse, 
+    .navbar-fixed-bottom .navbar-collapse {
+        padding-right: 15px;
+        padding-left: 15px; }
+    .navbar-collapse.collapse {
+        display: none !important; }
+        .navbar-collapse.collapse.in { 
+        display: block!important; 
+        margin-top: 0px; }
+}
+@media only screen and (max-width: 768px) {
+    .navbar-nav{ float: none; }
+}
 @media screen and (max-width: 640px) {
 	#bg-slider .container{padding-bottom:30px;}
 }
@@ -1079,17 +1092,15 @@ h2.title
 }
 
 @media screen and (max-width: 320px){
-   #all-product-home div div ul li div div a img
-{
-    width: 197px;
-} 
+   #all-product-home div div ul li div div a img{
+        width: 197px;
+    } 
 }
 
 @media screen and (max-width: 736px){
-    #testimonial
-{
-    display: none;
-}
+    #testimonial{
+        display: none;
+    }
 }
 
 /* iPads (landscape) ----------- */
