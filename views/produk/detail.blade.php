@@ -12,10 +12,9 @@
                 <div class="title"><h2>Kategori</h2></div>
                 <ul class="block-content">
                  @foreach(list_category() as $side_menu)
-                    @if($side_menu->parent == '0')
+                    @if($side_menu->parent == 0)
                     <li>
-                        <a href="{{category_url($side_menu)}}">{{short_description($side_menu->nama,20)}}
-                        </a>
+                        <a href="{{category_url($side_menu)}}">{{short_description($side_menu->nama,20)}}</a>
                         @if($side_menu->anak->count() != 0)
                         <ul class="block1">
                             @foreach($side_menu->anak as $submenu)
@@ -52,7 +51,7 @@
                     <li>
                         <a href="{{product_url($bestproduk)}}">
                             <div class="img-block">
-                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'),'best seller',array('width'=>'81','height'=>'64'))}}
+                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'), $bestproduk->nama,array('width'=>'81','height'=>'64','title'=>$bestproduk->nama))}}
                             </div>
                             <p class="product-name">{{short_description($bestproduk->nama,12)}}</p>
                             <p class="price">{{price($bestproduk->hargaJual)}}</p> 
@@ -60,9 +59,7 @@
                     </li>
                     @endforeach
                 </ul>
-                <div class="btn-more">
-                    <a href="{{url::to('produk')}}">produk lainnya >></a>
-                </div>
+                <div class="btn-more"><a href="{{url::to('produk')}}">produk lainnya >></a></div>
             </div>
             @endif
             @if(count(list_blog()) > 0)
@@ -71,8 +68,7 @@
                 <ul class="block-content">
                     @foreach(list_blog(5) as $artikel)
                     <li>
-                        <div class="img-block">    
-                        </div>
+                        <div class="img-block"></div>
                         <h5 class="title-news">{{short_description($artikel->judul, 20)}}</h5>
                         <p>{{short_description($artikel->isi, 46)}} <a class="read-more" href="{{blog_url($artikel)}}">Selengkapnya</a></p>
                         <span class="date-post">{{date("F d, Y", strtotime($artikel->created_at))}}</span>
@@ -81,26 +77,26 @@
                 </ul>
             </div>
             @endif
-        </div><!--#left_sidebar-->
+        </div>
         <div id="center_column" class="inner-bg col-lg-9 col-xs-12 col-sm-8">
             <div class="product-details">
                 <form action="#" id="addorder">
                     <div class="row">
                         <div id="prod-left" class="col-lg-6 col-xs-12 col-sm-6">
                             <div class="big-image">
-                                <img src="{{product_image_url($produk->gambar1,'large')}}" width="374" height="411" alt="" />
+                                <img src="{{product_image_url($produk->gambar1,'medium')}}" width="374" height="411" alt="{{$produk->nama}}" />
                                 <a class="zoom fancybox" href="{{product_image_url($produk->gambar1,'large')}}" title="{{$produk->nama}}">&nbsp;</a>
                             </div>
                             <div id="thumb-view">
                                 <ul id="thumb-list" class="owl-carousel owl-theme">
                                     @if($produk->gambar2 != '')
-                                    <li class="item"><a class="zoom fancybox" href="{{product_image_url($produk->gambar2,'large')}}" title="{{$produk->nama}}"><img src="{{product_image_url($produk->gambar2,'medium')}}" width="113" height="152" alt="" /></a></li>
+                                    <li class="item"><a class="zoom fancybox" href="{{product_image_url($produk->gambar2,'large')}}" title="{{$produk->nama}}"><img src="{{product_image_url($produk->gambar2,'medium')}}" width="113" height="152" alt="thumbnail" /></a></li>
                                     @endif
                                     @if($produk->gambar3 != '')
-                                    <li class="item"><a class="zoom fancybox" href="{{product_image_url($produk->gambar3,'large')}}" title="{{$produk->nama}}"><img src="{{product_image_url($produk->gambar3,'medium')}}" width="113" height="152" alt="" /></a></li>
+                                    <li class="item"><a class="zoom fancybox" href="{{product_image_url($produk->gambar3,'large')}}" title="{{$produk->nama}}"><img src="{{product_image_url($produk->gambar3,'medium')}}" width="113" height="152" alt="thumbnail" /></a></li>
                                     @endif
                                     @if($produk->gambar4 != '')
-                                    <li class="item"><a class="zoom fancybox" href="{{product_image_url($produk->gambar4,'large')}}" title="{{$produk->nama}}"><img src="{{product_image_url($produk->gambar4,'medium')}}" width="113" height="152" alt="" /></a></li>
+                                    <li class="item"><a class="zoom fancybox" href="{{product_image_url($produk->gambar4,'large')}}" title="{{$produk->nama}}"><img src="{{product_image_url($produk->gambar4,'medium')}}" width="113" height="152" alt="thumbnail" /></a></li>
                                     @endif
                                 </ul>
                             </div>
@@ -111,23 +107,20 @@
                             <span class="priceCoret"><del>{{price($produk->hargaCoret)}}</del></span>
                             @endif
                             <span class="price">{{price($produk->hargaJual)}}</span>
-                            <div class="img-rating">
-                                {{sosialShare(product_url($produk))}}
-                            </div>
+                            <div class="img-rating">{{sosialShare(product_url($produk))}}</div>
                             <div class="desc-prod">
                                 <p class="title">Deskripsi Produk</p>
                                 <p>{{$produk->deskripsi}}</p>
                             </div>
                             @if($produk->stok > 0)
-                            <div class="avail-info">
-                                <span class="instock">Tersedia, Stok {{$produk->stok}} item</span>
-                            </div>
+                            <div class="avail-info"><span class="instock">Tersedia, Stok {{$produk->stok}} item</span></div>
                             @else
                             <div class="noavail-info">
-                            <span class="fa-stack fa-1x">
-                                <i style="color: #d9534f;" class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-close fa-stack-1x fa-inverse"></i>
-                            </span><span class="instock">  Stok Kosong</span>
+                                <span class="fa-stack fa-1x">
+                                    <i style="color: #d9534f;" class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-close fa-stack-1x fa-inverse"></i>
+                                </span>
+                                <span class="instock">  Stok Kosong</span>
                             </div>
                             @endif
                             <div class="attribute">
@@ -136,15 +129,15 @@
                                         <div class="size-list">
                                             <div class="form-group">
                                                 @if($opsiproduk->count() > 0)
-                                                    <label class="col-sm-4 control-label">Opsi :</label>
-                                                    <div class="col-sm-5">
+                                                <label class="col-sm-4 control-label">Opsi :</label>
+                                                <div class="col-sm-5">
                                                     <div class="select-style">
-                                                      <select class="form-control">
-                                                        <option value="">-- Pilih Opsi --</option>
-                                                        @foreach ($opsiproduk as $key => $opsi)
-                                                         <option value="{{$opsi->id}}" {{ $opsi->stok==0 ? 'disabled':''}}>{{$opsi->opsi1.($opsi->opsi2=='' ? '':' / '.$opsi->opsi2).($opsi->opsi3=='' ? '':' / '.$opsi->opsi3)}} {{price($opsi->harga)}}</option>
-                                                        @endforeach
-                                                      </select>
+                                                        <select class="form-control">
+                                                            <option value="">-- Pilih Opsi --</option>
+                                                            @foreach ($opsiproduk as $key => $opsi)
+                                                            <option value="{{$opsi->id}}" {{ $opsi->stok==0 ? 'disabled':''}}>{{$opsi->opsi1.($opsi->opsi2=='' ? '':' / '.$opsi->opsi2).($opsi->opsi3=='' ? '':' / '.$opsi->opsi3)}} {{price($opsi->harga)}}</option>
+                                                            @endforeach
+                                                        </select>
                                                     </div>
                                                 </div>
                                                 @endif
@@ -154,9 +147,9 @@
                                             <div class="form-group">
                                                 <label class="col-sm-4 control-label">Quantity :</label>
                                                 <div class="col-sm-5">
-                                                <button type='submit' class='qtyminus' field='qty' /><i class="fa fa-caret-left"></i></button>
-                                                <input type='text' name='qty' value='1' class='qty' />
-                                                <button type='button' value='+' class='qtyplus' field='qty' /><i class="fa fa-caret-right"></i></button>
+                                                    <button type='submit' class='qtyminus' field='qty' /><i class="fa fa-caret-left"></i></button>
+                                                    <input type='text' name='qty' value='1' class='qty' />
+                                                    <button type='button' value='+' class='qtyplus' field='qty' /><i class="fa fa-caret-right"></i></button>
                                                 </div>
                                             </div>
                                         </div>
@@ -165,7 +158,7 @@
                             </div>
                         </div>
                         <div class="clr"></div>
-                    </div><!--.row-->
+                    </div>
                     <div class="btm-details row">
                         <div class="button-detail fr">
                             <button class="btn addtocart baddtocart btn-checkout chart" type="submit"><i class="cart"></i>Add to cart</button>
@@ -173,9 +166,6 @@
                         <div class="clr"></div>
                     </div>
                 </form>
-            </div><!--.product-details-->
-            <div id="reviews">
-                {{pluginTrustklik()}}
             </div>
             @if(count(other_product($produk)) > 0)
             <div id="related-product" class="product-list">
@@ -186,13 +176,13 @@
                          <li class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
                             <div class="prod-container">
                                 <div class="image-container">
-                                    <a href="{{product_url($relproduk)}}"><img class="img-responsive" src="{{product_image_url($relproduk->gambar1,'medium')}}" alt="product" /></a>
+                                    <a href="{{product_url($relproduk)}}"><img class="img-responsive" src="{{product_image_url($relproduk->gambar1,'medium')}}" alt="{{$relproduk->nama}}" title="{{$relproduk->nama}}" /></a>
                                     @if(is_outstok($relproduk))
-                                        <div class="icon-info icon-sale">KOSONG</div>
+                                    <div class="icon-info icon-sale">KOSONG</div>
                                     @elseif(is_terlaris($relproduk))
-                                        <div class="icon-info icon-promo">HOT ITEM</div>
+                                    <div class="icon-info icon-promo">HOT ITEM</div>
                                     @elseif(is_produkbaru($relproduk))
-                                        <div class="icon-info icon-new">BARU</div>
+                                    <div class="icon-info icon-new">BARU</div>
                                     @endif
                                 </div>
                                 <h5 class="product-name">{{shortDescription($relproduk->nama,22)}}</h5>
@@ -203,8 +193,9 @@
                         @endforeach
                     </ul>
                 </div>
-            </div><!--.product-details-->
+            </div>
             @endif
-        </div> <!--.center_column-->
-    </div><!--.inner-column-->  
+            <div id="reviews">{{pluginTrustklik()}}</div>
+        </div>
+    </div>
 </section>

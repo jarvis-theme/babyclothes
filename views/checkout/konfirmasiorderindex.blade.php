@@ -1,3 +1,4 @@
+<style type="text/css">.find-code{margin-left:10px}.pull-left{float:left}</style>
 <section id="main-content">
     <div class="breadcrumb">
         <div>
@@ -10,11 +11,11 @@
         	<div class="contact-form">
 				<p>Silakan masukkan kode order yang mau anda cari!</p>
 				{{Form::open(array('url'=>'konfirmasiorder','method'=>'post','class'=>'form-inline'))}}
-					<input style="float:left;" type="text" class="form-control" placeholder=" Kode Order" name='kodeorder' required>
-					<button type="submit" style="margin-left:10px;" class="btn btn-success"><span> Cari Kode</span></button>
+					<input class="pull-left form-control" type="text" placeholder="Kode Order" name='kodeorder' required>
+					<button class="find-code btn btn-success" type="submit"><span> Cari Kode</span></button>
 				{{Form::close()}}
 			</div>
 			<br>
-        </div> <!--.center_column-->
-    </div><!--.inner-column-->
+        </div>
+    </div>
 </section>

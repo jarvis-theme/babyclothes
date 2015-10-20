@@ -1,3 +1,4 @@
+<style type="text/css">#center{text-align: center}</style>
 <section id="main-content">
     <div class="breadcrumb">
         <div>
@@ -13,7 +14,7 @@
        				<li><a href="{{url('member/profile/edit')}}">Edit Profile</a></li>
                 </ul>
             </div>
-        </div><!--#left_sidebar-->
+        </div>
         <div id="center_column" class="inner-bg col-lg-9 col-xs-12 col-sm-8">
         	@if($pengaturan->checkoutType!=2)
 				@if(list_order()->count() > 0)
@@ -33,39 +34,21 @@
 						<tbody>
 						@foreach (list_order() as $item)
 							<tr>
-								<td>
-								@if($pengaturan->checkoutType==3)	
-									{{prefixOrder().$item->kodePreorder}}
-								@else 
-									{{prefixOrder().$item->kodeOrder}}
-								@endif
-								</td>
-								<td>
-									@if($pengaturan->checkoutType==3)	
-										{{waktu($item->tanggalPreorder)}}
-									@else 
-										{{waktu($item->tanggalOrder)}}
-									@endif	
-								</td>
+								<td>{{$pengaturan->checkoutType==3 ? prefixOrder().$item->kodePreorder : prefixOrder().$item->kodeOrder}}</td>
+								<td>{{$pengaturan->checkoutType==3 ? waktu($item->tanggalPreorder : waktu($item->tanggalOrder)}}</td>
 								<td class="desc">
 									<ul>
 									@if($pengaturan->checkoutType==3) 
 										<li>{{$item->preorderdata->produk->nama}} ({{$item->opsiSkuId==0 ? 'No Opsi' : $item->opsisku->opsi1.($item->opsisku->opsi2!='' ? ' / '.$item->opsisku->opsi2:'').($item->opsisku->opsi3!='' ? ' / '.$item->opsisku->opsi3:'')}}) - {{$item->jumlah}}<li>
 									@else 
 										@foreach ($item->detailorder as $detail)
-										
 										<li>{{$detail->produk->nama}} {{$detail->opsiSkuId !=0 ? '('.$detail->opsisku["opsi1"].($detail->opsisku["opsi2"] != '' ? ' / '.$detail->opsisku["opsi2"]:'').($detail->opsisku["opsi3"] !='' ? ' / '.$detail->opsisku["opsi3"]:'').')':''}} - {{$detail->qty}}</li>
-										
 										@endforeach 
 									@endif
 									</ul>
 								</td>
-								<td class="quantity">
-									{{ price($item->total)	}}
-								</td>
-								<td class="sub-price">
-									{{ $item->noResi }}
-								</td>
+								<td class="quantity">{{ price($item->total)	}}</td>
+								<td class="sub-price">{{ $item->noResi }}</td>
 								<td class="total-price">
 								@if($pengaturan->checkoutType==1) 
 									@if($item->status==0)
@@ -110,7 +93,7 @@
 									@endif
 								@endif
 								</td>
-								<td style="text-align: center;">
+								<td id="center">
 								@if($pengaturan->checkoutType==3) 
 									@if($item->status < 4)
 									<button onclick="window.open('{{url('konfirmasipreorder/'.$item->id)}}','_blank')" class="btn btn-small btn-success" data-title="Edit" data-placement="top" data-tip="tooltip"><i class="fa fa-check"></i></button>
@@ -129,12 +112,12 @@
 				</div>
                 {{list_order()->links()}} 
 				@else
-					<span> Belum ada data order</span>
+				<span> Belum ada data order</span>
 				@endif
 			@else 
 				@if($inquiry->count()!=0)
-					<div class="table-responsive">
-						<table class="table table-hover">
+				<div class="table-responsive">
+					<table class="table table-hover">
 						<thead>
 							<tr>
 								<th><span>ID Order</span></td></th>
@@ -146,12 +129,8 @@
 						<tbody>
 							@foreach ($inquiry as $item)
 							<tr>
-								<td>
-									{{prefixOrder()}}{{$item->kodeInquiry}}
-								</td>
-								<td>
-									{{waktu($item->created_at)}}
-								</td>
+								<td>{{prefixOrder()}}{{$item->kodeInquiry}}</td>
+								<td>{{waktu($item->created_at)}}</td>
 								<td>
 									@foreach ($item->detailInquiry as $detail)
 									<li>{{$detail->produk->nama}} {{$detail->opsiSkuId !=0 ? '('.$detail->opsisku["opsi1"].($detail->opsisku["opsi2"] != '' ? ' / '.$detail->opsisku["opsi2"]:'').($detail->opsisku["opsi3"] !='' ? ' / '.$detail->opsisku["opsi3"]:'').')':''}} - {{$detail->qty}}</li>
@@ -169,18 +148,13 @@
 							</tr>
 							@endforeach
 						</tbody>
-					
 				@else
-					<tr>
-						<td colspan="2">
-							Inquiry anda masih kosong.
-						</td>
-					</tr>
+					<tr><td colspan="2">Inquiry anda masih kosong.</td></tr>
 				@endif
-						</table>
-					</div>
+					</table>
+				</div>
 			@endif
 			<br>
-        </div> <!--.center_column-->
-    </div><!--.inner-column-->  
+        </div>
+    </div>
 </section>

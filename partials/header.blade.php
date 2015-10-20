@@ -1,10 +1,11 @@
+<style type="text/css">.logo-text{color:#5EC80C}</style>
 <header>
     <div id="top-header">
         <div id="logo" class="fl">
             @if(@getimagesize(url(logo_image_url())))
             <a href="{{url('home')}}">{{HTML::image(logo_image_url(), 'Logo', array('width'=>'327', 'height'=>'67'))}}</a>
             @else
-            <a href="{{url('home')}}" style="color:#5EC80C"><h1>{{ shortText(Theme::place('title'),26) }}</h1></a>
+            <a href="{{url('home')}}" class="logo-text"><h1>{{ shortText(Theme::place('title'),26) }}</h1></a>
             @endif
         </div>
         <div id="shoppingcartplace">
@@ -27,7 +28,6 @@
         </strong>
         @endif
     </div>
-    <!-- MENU - START -->
     <nav id="menu" class="navbar navbar-default" role="navigation">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -56,6 +56,5 @@
             </div>  
         </div>
     </nav>
-    <!-- MENU - END -->
     <div class="clr"></div>
 </header>

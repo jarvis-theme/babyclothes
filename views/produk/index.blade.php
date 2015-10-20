@@ -14,8 +14,7 @@
                  @foreach(list_category() as $side_menu)
                     @if($side_menu->parent == '0')
                     <li>
-                        <a href="{{category_url($side_menu)}}">{{short_description($side_menu->nama,20)}}
-                        </a>
+                        <a href="{{category_url($side_menu)}}">{{short_description($side_menu->nama,20)}}</a>
                         @if($side_menu->anak->count() != 0)
                         <ul class="block1">
                             @foreach($side_menu->anak as $submenu)
@@ -52,7 +51,7 @@
                     <li>
                         <a href="{{product_url($bestproduk)}}">
                             <div class="img-block">
-                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'),'best seller',array('width'=>'81','height'=>'64'))}}
+                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'), $bestproduk->nama,array('width'=>'81','height'=>'64','title'=>$bestproduk->nama))}}
                             </div>
                             <p class="product-name">{{short_description($bestproduk->nama,12)}}</p>
                             <p class="price">{{price($bestproduk->hargaJual)}}</p> 
@@ -60,9 +59,7 @@
                     </li>
                     @endforeach
                 </ul>
-                <div class="btn-more">
-                    <a href="{{url::to('produk')}}">produk lainnya >></a>
-                </div>
+                <div class="btn-more"><a href="{{url::to('produk')}}">produk lainnya >></a></div>
             </div>
             @endif
             @if(count(list_blog()) > 0)
@@ -80,7 +77,7 @@
                 </ul>
             </div>
             @endif
-        </div><!--#left_sidebar-->
+        </div>
         <div id="center_column" class="col-lg-9 col-xs-12 col-sm-8">
             <div class="product-list">
                 <div class="row">
@@ -91,14 +88,14 @@
                             <div class="prod-container">
                                 <div class="image-container">
                                     <a href="{{product_url($listproduk)}}">
-                                        {{HTML::image(product_image_url($listproduk->gambar1,'medium'))}}
+                                        {{HTML::image(product_image_url($listproduk->gambar1,'medium'), $listproduk->nama, array('title'=>$listproduk->nama))}}
                                     </a>
                                     @if(is_outstok($listproduk))
-                                        <div class="icon-info icon-sale">KOSONG</div>
+                                    <div class="icon-info icon-sale">KOSONG</div>
                                     @elseif(is_terlaris($listproduk))
-                                        <div class="icon-info icon-promo">HOT ITEM</div>
+                                    <div class="icon-info icon-promo">HOT ITEM</div>
                                     @elseif(is_produkbaru($listproduk))
-                                        <div class="icon-info icon-new">BARU</div>
+                                    <div class="icon-info icon-new">BARU</div>
                                     @endif
                                 </div>
                                 <div class="prod-info">
@@ -115,13 +112,11 @@
                     </ul>
                     {{list_product(null, @$category, @$collection)->links()}}
                     @else
-                    <article class="text-center">
-                        <i>Produk tidak ditemukan</i>
-                    </article>
+                    <article class="text-center"><i>Produk tidak ditemukan</i></article>
                     @endif
-                </div><!--.row-->
-                </div><!--.product_list-->
-                <div class="clr"></div>
-        </div> <!--.center_column-->
-    </div><!--.inner-column-->  
+                </div>
+            </div>
+            <div class="clr"></div>
+        </div>
+    </div>
 </section>

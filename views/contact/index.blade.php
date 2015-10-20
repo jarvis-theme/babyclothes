@@ -1,3 +1,4 @@
+<style type="text/css">.contact{margin-bottom:30px}</style>
 <section id="main-content">
     <div class="breadcrumb">
         <div>
@@ -10,12 +11,11 @@
             @if(count(list_category()) > 0)
             <div id="categories" class="block">
                 <div class="title"><h2>Kategori</h2></div>
-                 <ul class="block-content">
-                 @foreach(list_category() as $side_menu)
+                <ul class="block-content">
+                @foreach(list_category() as $side_menu)
                     @if($side_menu->parent == '0')
                     <li>
-                        <a href="{{category_url($side_menu)}}">{{short_description($side_menu->nama,20)}}
-                        </a>
+                        <a href="{{category_url($side_menu)}}">{{short_description($side_menu->nama,20)}}</a>
                         @if($side_menu->anak->count() != 0)
                         <ul class="block1">
                             @foreach($side_menu->anak as $submenu)
@@ -26,9 +26,7 @@
                                     <ul class="block2">
                                         @foreach($submenu->anak as $submenu2)
                                         @if($submenu2->parent == $submenu->id)
-                                        <li>
-                                            <a href="{{category_url($submenu2)}}">{{short_description($submenu2->nama,20)}}</a>
-                                        </li>
+                                        <li><a href="{{category_url($submenu2)}}">{{short_description($submenu2->nama,20)}}</a></li>
                                         @endif
                                         @endforeach
                                     </ul>
@@ -52,7 +50,7 @@
                     <li>
                         <a href="{{product_url($bestproduk)}}">
                             <div class="img-block">
-                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'),'best seller',array('width'=>'81','height'=>'64'))}}
+                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'), $bestproduk->nama,array('width'=>'81','height'=>'64','title'=>$bestproduk->nama))}}
                             </div>
                             <p class="product-name">{{short_description($bestproduk->nama,12)}}</p>
                             <p class="price">{{price($bestproduk->hargaJual)}}</p> 
@@ -60,9 +58,7 @@
                     </li>
                     @endforeach
                 </ul>
-                <div class="btn-more">
-                    <a href="{{url::to('produk')}}">produk lainnya >></a>
-                </div>
+                <div class="btn-more"><a href="{{url::to('produk')}}">produk lainnya >></a></div>
             </div>
             @endif
             @if(count(list_blog()) > 0)
@@ -71,8 +67,7 @@
                 <ul class="block-content">
                     @foreach(list_blog(5) as $artikel)
                     <li>
-                        <div class="img-block">    
-                        </div>
+                        <div class="img-block"></div>
                         <h5 class="title-news">{{short_description($artikel->judul, 20)}}</h5>
                         <p>{{short_description($artikel->isi, 46)}} <a class="read-more" href="{{blog_url($artikel)}}">Selengkapnya</a></p>
                         <span class="date-post">{{date("F d, Y", strtotime($artikel->created_at))}}</span>
@@ -81,16 +76,16 @@
                 </ul>
             </div>
             @endif
-        </div><!--#left_sidebar-->
+        </div>
         <div id="center_column" class="inner-bg col-lg-9 col-xs-12 col-sm-8">
             <div class="tabs-description">
-                <div class="col-md-12 col-xs-12" style="margin-bottom:30px;">         
+                <div class="col-md-12 col-xs-12" id="contact">         
                     <div class="maps" >
                         <h2 class="title">Peta Lokasi</h2>
                         @if($kontak->lat!='0' || $kontak->lng!='0')
-                            <iframe style="float:right;width:100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{ $kontak->lat.','.$kontak->lng }}&amp;aq=&amp;sll={{ $kontak->lat.','.$kontak->lng }}&amp;sspn=0.006849,0.009892&amp;ie=UTF8&amp;t=m&amp;z=14&amp;output=embed"></iframe><br />
+                        <iframe style="float:right;width:100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{ $kontak->lat.','.$kontak->lng }}&amp;aq=&amp;sll={{ $kontak->lat.','.$kontak->lng }}&amp;sspn=0.006849,0.009892&amp;ie=UTF8&amp;t=m&amp;z=14&amp;output=embed"></iframe><br />
                         @else
-                            <iframe style="float:right;width:100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{ $kontak->alamat }}&amp;aq=0&amp;oq=gegerkalong+hil&amp;sspn=0.006849,0.009892&amp;ie=UTF8&amp;hq=&amp;hnear={{ $kontak->alamat }}&amp;t=m&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br />
+                        <iframe style="float:right;width:100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{ $kontak->alamat }}&amp;aq=0&amp;oq=gegerkalong+hil&amp;sspn=0.006849,0.009892&amp;ie=UTF8&amp;hq=&amp;hnear={{ $kontak->alamat }}&amp;t=m&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br />
                         @endif
                     </div>
                 </div>
@@ -119,13 +114,13 @@
                         <div class="col-md-6 kontak">
                             <form class="contact-form" action="{{url('kontak')}}" method="post">
                                 <p class="form-group">
-                                <input class="form-control" placeholder="Name" name="namaKontak" type="text" required>
+                                    <input class="form-control" placeholder="Name" name="namaKontak" type="text" required>
                                 </p>
                                 <p class="form-group">
-                                <input class="form-control" placeholder="Email Address" name="emailKontak" type="email" required>
+                                    <input class="form-control" placeholder="Email Address" name="emailKontak" type="email" required>
                                 </p>
                                 <p class="form-group">
-                                <textarea class="form-control" placeholder="Message" name="messageKontak" required></textarea>
+                                    <textarea class="form-control" placeholder="Message" name="messageKontak" required></textarea>
                                 </p>
                                 <button class="btn btn-warning submitnewletter">Kirim</button><br><br>
                             </form>
@@ -133,6 +128,6 @@
                     </div>
                 </div>
             </div>
-        </div> <!--.center_column-->
-    </div><!--.inner-column-->  
+        </div>
+    </div>
 </section>

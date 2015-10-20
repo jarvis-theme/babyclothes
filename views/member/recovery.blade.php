@@ -1,8 +1,7 @@
 <div class="inner-column row padd">
     <div id="center_column" class="inner-bg col-lg-12 col-xs-12 col-sm-8">
         <div class="col-xs-12 col-sm-8 col-lg-9">
-            <h2>Forget Password</h2>
-            <br>
+            <h2>Forget Password</h2><br>
             {{Form::open(array('url' => 'member/recovery/'.$id.'/'.$code, 'class' => 'form-horizontal'))}}
                 <div class="form-group">
                     <label for="inputPassword" class="col-sm-2">Password Baru</label>
@@ -29,7 +28,7 @@
                 @foreach(vertical_banner() as $banner)
                 <div class="img-block">
                     <a href="{{url($banner->url)}}">
-                        {{HTML::image(banner_image_url($banner->gambar),'banner',array('width'=>'272','height'=>'391','class'=>'img-responsive'))}}
+                        {{HTML::image(banner_image_url($banner->gambar),'Info Banner',array('width'=>'272','height'=>'391','class'=>'img-responsive'))}}
                     </a>
                 </div>
                 @endforeach

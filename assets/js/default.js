@@ -1,11 +1,11 @@
-define(['jquery','fancybox','flexslider','carousel','bootstrap'], function($,fancybox,flexslider,owlCarousel)
+define(['jquery','fancybox','flexslider','carousel','bootstrap','modernizr'], function($,fancybox,flexslider,owlCarousel)
 {
     return new function(){
         var self = this;
         self.run = function(){
             $(window).load(function() {
                 // PRELOADER
-                if ($('body').hasClass('hide')) {
+                /*if ($('body').hasClass('hide')) {
                     $('.preloader').fadeOut(1000, function(){
                         setTimeout(function(){$('.preloader').remove(); },2000);
                         $('body').removeClass('hide');
@@ -15,7 +15,7 @@ define(['jquery','fancybox','flexslider','carousel','bootstrap'], function($,fan
                     $('.preloader').fadeOut(1000, function(){
                         $('.preloader').remove();
                     });
-                }
+                }*/
 
                 // BIG SLIDER
                 $('#bg-slider .flexslider').flexslider({

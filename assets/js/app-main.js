@@ -42,6 +42,7 @@ require.config({
 		fancybox		: dirTema+'/assets/js/lib/jquery.fancybox.pack',
 		flexslider		: dirTema+'/assets/js/lib/jquery.flexslider-min',
 		carousel		: dirTema+'/assets/js/lib/owl.carousel.min',
+		modernizr		: dirTema+'/assets/js/lib/modernizr.custom.28468',
 		
 		// ROUTE
 		router          : 'js/router',

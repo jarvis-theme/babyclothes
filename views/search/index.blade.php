@@ -1,3 +1,4 @@
+<style type="text/css">.tabs-description > article {margin-bottom:10px}#title-blog{margin-bottom: 15px}</style>
 <section id="main-content">
     <div class="breadcrumb">
         <div>
@@ -10,15 +11,11 @@
             @if(count(list_category()) > 0)
             <div id="categories" class="block">
                 <div class="title"><h2>Kategori</h2></div>
-               
                 <ul class="block-content">
                 @foreach(list_category() as $side_menu)
                     @if($side_menu->parent == '0')
                     <li>
-                        <a href="{{category_url($side_menu)}}">{{short_description($side_menu->nama,20)}}
-                      
-                        </a>
-
+                        <a href="{{category_url($side_menu)}}">{{short_description($side_menu->nama,20)}}</a>
                         @if($side_menu->anak->count() != 0)
                         <ul class="block1">
                             @foreach($side_menu->anak as $submenu)
@@ -55,7 +52,7 @@
                     <li>
                         <a href="{{product_url($bestproduk)}}">
                             <div class="img-block">
-                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'),'best seller',array('width'=>'81','height'=>'64'))}}
+                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'), $bestproduk->nama,array('width'=>'81','height'=>'64','title'=>$bestproduk->nama))}}
                             </div>
                             <p class="product-name">{{short_description($bestproduk->nama,12)}}</p>
                             <p class="price">{{price($bestproduk->hargaJual)}}</p> 
@@ -63,9 +60,7 @@
                     </li>
                     @endforeach
                 </ul>
-                <div class="btn-more">
-                    <a href="{{url::to('produk')}}">produk lainnya >></a>
-                </div>
+                <div class="btn-more"><a href="{{url::to('produk')}}">produk lainnya >></a></div>
             </div>
             @endif
             @if(count(list_blog()) > 0)
@@ -74,8 +69,7 @@
                 <ul class="block-content">
                     @foreach(list_blog(5) as $artikel)
                     <li>
-                        <div class="img-block">    
-                        </div>
+                        <div class="img-block"></div>
                         <h5 class="title-news">{{short_description($artikel->judul, 20)}}</h5>
                         <p>{{short_description($artikel->isi, 46)}} <a class="read-more" href="{{blog_url($artikel)}}">Selengkapnya</a></p>
                         <span class="date-post">{{date("F d, Y", strtotime($artikel->created_at))}}</span>
@@ -84,52 +78,52 @@
                 </ul>
             </div>
             @endif
-        </div><!--#left_sidebar-->
+        </div>
         
         @if($jumlahCari != 0)
             @if(count($hasilpro) > 0)
-                <div id="center_column" class="col-lg-9 col-xs-12 col-sm-8">
-                    <div class="product-list">
-                        <div class="row">
-                            <ul class="grid">
-                                @foreach($hasilpro as $listproduk)
-                                <li class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                                    <div class="prod-container">
-                                        <div class="image-container">
-                                            <a href="{{product_url($listproduk)}}">
-                                                {{HTML::image(product_image_url($listproduk->gambar1,'medium'),'',array("height"=>"258"))}}
-                                            </a>
-                                            @if(is_outstok($listproduk))
-                                                <div class="icon-info icon-sale">KOSONG</div>
-                                            @elseif(is_terlaris($listproduk))
-                                                <div class="icon-info icon-promo">HOT ITEM</div>
-                                            @elseif(is_produkbaru($listproduk))
-                                                <div class="icon-info icon-new">BARU</div>
-                                            @endif
-                                        </div>
-                                        <div class="prod-info">
-                                            <div class="fl">
-                                                <h5 class="product-name">{{short_description($listproduk->nama,22)}}</h5>
-                                                <span class="price">Harga : {{price($listproduk->hargaJual)}}</span>
-                                            </div>
-                                            <a href="{{product_url($listproduk)}}"><button class="buy-btn fr">Beli</button></a>
-                                        </div>
-                                        <div class="clr"></div>
+            <div id="center_column" class="col-lg-9 col-xs-12 col-sm-8">
+                <div class="product-list">
+                    <div class="row">
+                        <ul class="grid">
+                            @foreach($hasilpro as $listproduk)
+                            <li class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                <div class="prod-container">
+                                    <div class="image-container">
+                                        <a href="{{product_url($listproduk)}}">
+                                            {{HTML::image(product_image_url($listproduk->gambar1,'medium'), $listproduk->nama, array("height"=>"258",'title'=>$listproduk->nama))}}
+                                        </a>
+                                        @if(is_outstok($listproduk))
+                                        <div class="icon-info icon-sale">KOSONG</div>
+                                        @elseif(is_terlaris($listproduk))
+                                        <div class="icon-info icon-promo">HOT ITEM</div>
+                                        @elseif(is_produkbaru($listproduk))
+                                        <div class="icon-info icon-new">BARU</div>
+                                        @endif
                                     </div>
-                                </li>
-                                @endforeach
-                            </ul>
-                            </div><!--.row-->
-                    </div><!--.product_list-->
+                                    <div class="prod-info">
+                                        <div class="fl">
+                                            <h5 class="product-name">{{short_description($listproduk->nama,22)}}</h5>
+                                            <span class="price">Harga : {{price($listproduk->hargaJual)}}</span>
+                                        </div>
+                                        <a href="{{product_url($listproduk)}}"><button class="buy-btn fr">Beli</button></a>
+                                    </div>
+                                    <div class="clr"></div>
+                                </div>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
                 <div class="clr"></div>
-            </div> <!--.center_column-->
+            </div>
             {{$hasilpro->links()}}
             @endif
             @if(count($hasilhal) > 0 || count($hasilblog) > 0)
             <div id="center_column" class="inner-bg col-lg-9 col-xs-12 col-sm-8">
                 <div class="tabs-description">
                     @foreach($hasilhal as $blog)
-                    <article class="col-lg-12" style="margin-bottom:10px">
+                    <article class="col-lg-12">
                         <hr>
                         <h3 class="title">{{$blog->judul}}</h3>
                         <p>
@@ -143,26 +137,24 @@
                     </article>
                     @endforeach
                     @foreach($hasilblog as $blog_result)  
-                        <article class="col-lg-12" style="margin-bottom:10px">
-                            <h3 class="title">{{$blog_result->judul}}</h3>
-                            <p style="margin-bottom: 15px;">
-                                <small><i class="fa fa-calendar"></i> {{waktuTgl($blog_result->updated_at)}}</small>&nbsp;&nbsp;
-                                <span class="date-post"><i class="fa fa-tags"></i> <a href="{{blog_category_url(@$blog_result->kategori)}}">{{@$blog_result->kategori->nama}}</a></span>
-                            </p>
-                            <p>
-                                {{short_description($blog_result->isi,300)}}<br>
-                                <a href="{{blog_url($blog_result)}}" class="theme">Baca Selengkapnya →</a>
-                            </p>
-                            <hr>
-                        </article>
+                    <article class="col-lg-12">
+                        <h3 class="title">{{$blog_result->judul}}</h3>
+                        <p id="title-blog">
+                            <small><i class="fa fa-calendar"></i> {{waktuTgl($blog_result->updated_at)}}</small>&nbsp;&nbsp;
+                            <span class="date-post"><i class="fa fa-tags"></i> <a href="{{blog_category_url(@$blog_result->kategori)}}">{{@$blog_result->kategori->nama}}</a></span>
+                        </p>
+                        <p>
+                            {{short_description($blog_result->isi,300)}}<br>
+                            <a href="{{blog_url($blog_result)}}" class="theme">Baca Selengkapnya →</a>
+                        </p>
+                        <hr>
+                    </article>
                     @endforeach 
                 </div>
             </div>
             @endif
         @else
-            <article class="text-center">
-                <i>Hasil pencarian tidak ditemukan</i>
-            </article>
+        <article class="text-center"><i>Hasil pencarian tidak ditemukan</i></article>
         @endif
-    </div><!--.inner-column-->  
+    </div>
 </section>

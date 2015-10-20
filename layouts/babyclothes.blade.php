@@ -2,11 +2,10 @@
 <html lang="en">
     <head>
         {{ Theme::partial('seostuff') }} 
-        {{ Theme::partial('defaultcss') }}  
         {{ Theme::asset()->styles() }} 
+        {{ Theme::partial('defaultcss') }}  
     </head>
     <body> 
-    <div class="preloader"></div>
         <div class="container">
             <section id="main-wrapper">
                 {{ Theme::partial('header') }} 
@@ -16,10 +15,10 @@
                             
                     {{ Theme::place('content') }}
                 </section>
-            </section> <!--#main-wrapper-->
+            </section>
             
             {{ Theme::partial('footer') }}
-        </div><!--.container-->
+        </div>
         <hr class="line-btm">
         {{ Theme::partial('defaultjs') }}
         {{ Theme::partial('analytic') }}

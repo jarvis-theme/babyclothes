@@ -10,13 +10,11 @@
             @if(count(list_blog_category()) > 0)
             <div id="categories" class="block">
                 <div class="title"><h2>Kategori Blog</h2></div>
-                 <ul class="block-content">
+                <ul class="block-content">
                 @foreach(list_blog_category() as $kat)
-                @if(!empty($kat->nama))        
-                <li>
-                    <a href="{{blog_category_url($kat)}}">{{$kat->nama}} </a>
-                </li>
-                @endif
+                    @if(!empty($kat->nama)) 
+                    <li><a href="{{blog_category_url($kat)}}">{{$kat->nama}} </a></li>
+                    @endif
                 @endforeach
                 </ul>
             </div>
@@ -29,7 +27,7 @@
                     <li>
                         <a href="{{product_url($bestproduk)}}">
                             <div class="img-block">
-                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'),'best seller',array('width'=>'81','height'=>'64'))}}
+                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'), $bestproduk->nama,array('width'=>'81','height'=>'64','title'=>$bestproduk->nama))}}
                             </div>
                             <p class="product-name">{{short_description($bestproduk->nama,12)}}</p>
                             <p class="price">{{price($bestproduk->hargaJual)}}</p> 
@@ -37,9 +35,7 @@
                     </li>
                     @endforeach
                 </ul>
-                <div class="btn-more">
-                    <a href="{{url::to('produk')}}">produk lainnya >></a>
-                </div>
+                <div class="btn-more"><a href="{{url::to('produk')}}">produk lainnya >></a></div>
             </div>
             @endif
             @if(count(recentBlog(null,5)) > 0)
@@ -48,8 +44,7 @@
                 <ul class="block-content">
                     @foreach(recentBlog(null,5) as $artikel)
                     <li>
-                        <div class="img-block">    
-                        </div>
+                        <div class="img-block"></div>
                         <h5 class="title-news">{{short_description($artikel->judul, 20)}}</h5>
                         <p>{{short_description($artikel->isi, 46)}} <a class="read-more" href="{{blog_url($artikel)}}">Selengkapnya</a></p>
                         <span class="date-post">{{date("F d, Y", strtotime($artikel->created_at))}}</span>
@@ -58,7 +53,7 @@
                 </ul>
             </div>
             @endif
-        </div><!--#left_sidebar-->
+        </div>
         <div id="center_column" class="inner-bg col-lg-9 col-xs-12 col-sm-8">
             <div class="tabs-description">
                 <h3 class="title">{{$detailblog->judul}}</h3>
@@ -68,29 +63,25 @@
                     <span class="date-post"><i class="fa fa-tags"></i> <a href="{{blog_category_url(@$detailblog->kategori)}}">{{@$detailblog->kategori->nama}}</a></span>
                     @endif
                 </p>
-                {{sosialShare(blog_url($detailblog))}}
-                <br>
+                {{sosialShare(blog_url($detailblog))}}<br>
                 <p>{{$detailblog->isi}}</p>
-       
                 <hr>
                 <div class="navigate comments clearfix">
                     @if(isset($prev))
-                        <div class="pull-left"><a href="{{$prev->slug}}">&larr; Sebelumnya</a></div>
+                    <div class="pull-left"><a href="{{$prev->slug}}">&larr; Sebelumnya</a></div>
                     @else
-                        <div class="pull-right"></div>
+                    <div class="pull-right"></div>
                     @endif
                     @if(isset($next))
-                        <div class="pull-right">
-                        <a style="float: right;" href="{{$next->slug}}">Selanjutnya &rarr;</a>
-                        </div>
+                    <div class="pull-right"><a class="fr" href="{{$next->slug}}">Selanjutnya &rarr;</a></div>
                     @else
-                        <div class="pull-right"></div>
+                    <div class="pull-right"></div>
                     @endif
                 </div>
                 <hr>
             </div>
             {{$fbscript}}
             {{fbcommentbox(blog_url($detailblog), '100%', '5', 'light')}}
-        </div> <!--.center_column-->
-    </div><!--.inner-column-->  
+        </div>
+    </div>
 </section>

@@ -1,7 +1,7 @@
 <footer>
     <div id="testimonial">
         <div class="img-testimonial col-sm-4">
-            <img class="img-responsive" src="{{url(dirTemaToko().'babyclothes/assets/images/img-testimonial.png')}}" alt="" width="382" height="115" />
+            <img class="img-responsive" src="{{url(dirTemaToko().'babyclothes/assets/images/img-testimonial.png')}}" alt="{{'Testimonial '.Theme::place('title')}}" width="382" height="115" />
         </div>
         <div class="col-sm-7 text-testi flexslider">
             <ul class="slides">
@@ -41,15 +41,15 @@
         <div class="row sosial">
             <div class="bank-logo col-sm-8">
                 @foreach(list_banks() as $value)
-                <img src="{{bank_logo($value)}}" class="img-responsive">
+                <img src="{{bank_logo($value)}}" class="img-responsive" alt="{{$value->bankdefault->nama}}" title="Payment">
                 @endforeach
                 @foreach(list_payments() as $pay)
                     @if($pay->nama == 'ipaymu' && $pay->aktif == 1)
-                    <img class="img-responsive" src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" />
+                    <img class="img-responsive" src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" title="Payment" />
                     @endif
                 @endforeach
                 @if(count(list_dokus()) > 0 && list_dokus()->status == 1)
-                <img class="img-responsive" src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" />
+                <img class="img-responsive" src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" title="Payment" />
                 @endif
             </div>
             <div class="social-media">

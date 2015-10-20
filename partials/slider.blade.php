@@ -2,7 +2,7 @@
     <div id="da-slider" class="flexslider">
         <ul class="slides">
         	@foreach (slideshow() as $val) 
-            <li><img src="{{slide_image_url($val->gambar)}}" width="1170" height="500" alt="" /></li>
+            <li><img src="{{slide_image_url($val->gambar)}}" width="1170" height="500" alt="Slide" /></li>
             @endforeach 
         </ul>
     </div>

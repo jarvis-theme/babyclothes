@@ -6,13 +6,11 @@
         </a>
         @endforeach
     </div>
-</div><!--.adv-home-->
+</div>
 <div class="inner-column row">
     <div id="center_column" class="col-lg-12 col-xs-12 col-sm-12">
         <div id="all-product-home" class="product_home">
-            <div class="block-title">
-                <h2>Produk Terbaru</h2>
-            </div>
+            <div class="block-title"><h2>Produk Terbaru</h2></div>
             <div class="product-list">
                 <div class="row">
                     @if(count(home_product(null, @$category, @$collection)) > 0)
@@ -22,14 +20,14 @@
                             <div class="prod-container">
                                 <div class="image-container">
                                     <a href="{{product_url($listproduk)}}">
-                                        {{HTML::image(product_image_url($listproduk->gambar1,'medium'))}}
+                                        {{HTML::image(product_image_url($listproduk->gambar1,'medium'),$listproduk->nama,array('title'=>$listproduk->nama))}}
                                     </a>
                                     @if(is_outstok($listproduk))
-                                        <div class="icon-info icon-sale">KOSONG</div>
+                                    <div class="icon-info icon-sale">KOSONG</div>
                                     @elseif(is_terlaris($listproduk))
-                                        <div class="icon-info icon-promo">HOT ITEM</div>
+                                    <div class="icon-info icon-promo">HOT ITEM</div>
                                     @elseif(is_produkbaru($listproduk))
-                                        <div class="icon-info icon-new">BARU</div>
+                                    <div class="icon-info icon-new">BARU</div>
                                     @endif
                                 </div>
                                 <div class="prod-info">
@@ -40,19 +38,17 @@
                                     <a href="{{product_url($listproduk)}}"><button class="buy-btn fr">Beli</button></a>
                                 </div>
                                 <div class="clr"></div>
-                             </div>
+                            </div>
                         </li> 
                         @endforeach
                     </ul>
                     {{home_product(null, @$category, @$collection)->links()}}
                     @else
-                        <article class="text-center">
-                            <i>Produk tidak ditemukan</i>
-                        </article>
+                    <article class="text-center"><i>Produk tidak ditemukan</i></article>
                     @endif
                     <div class="clr"></div>
-                </div><!--.row-->
-            </div><!--.product_list-->
-        </div><!--#all-product-home-->       
-    </div> <!--.center_column-->
-</div><!--.inner-column-->  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
