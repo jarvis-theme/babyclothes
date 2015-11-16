@@ -9,56 +9,85 @@
         <div id="center_column" class="inner-bg col-lg-12 col-xs-12 col-sm-8">
             <div class="tab-title-top"><h1>Register</h1></div>
             <div class="register-page">
-                <span>Jika anda telah memiliki akun, maka anda dapat langsung menuju <a href="{{url('member')}}"> halaman login</a></span>
-                {{Form::open(array('url'=>'member','method'=>'post','class'=>'form-horizontal'))}}
-                    <br>
-                    <table class="col-xs-10 col-md-6">
-                        <tr>
-                            <td>Nama</td><td><input type="text" class="form-control" name="nama" value="{{Input::old('nama')}}" required></td>
-                        </tr>
-                        <tr>
-                            <td>Email</td><td><input type="email" class="form-control" name="email" value='{{Input::old("email")}}' required></td>
-                        </tr>
-                        <tr>
-                            <td>Password</td><td><input type="password" class="form-control" name="password" required></td>
-                        </tr>
-                        <tr>
-                            <td>Konfirmasi Password</td><td><input type="password" class="form-control" name="password_confirmation" required></td>
-                        </tr>
-                        <tr>
-                            <td>Alamat</td><td><textarea class="form-control" name="alamat" required>{{Input::old("alamat")}}</textarea></td>
-                        </tr>
-                        <tr>
-                            <td>Negara</td>
-                            <td>{{Form::select('negara',array('' => '-- Pilih Negara --') + $negara,Input::old(''),array('required', 'id="negara" data-rel="chosen" class="form-control"'))}}</td>
-                        </tr>
-                        <tr>
-                            <td>Provinsi</td>
-                            <td>{{Form::select('provinsi',array('' => '-- Pilih Provinsi --'), Input::old("provinsi"),array('required', 'id="provinsi" data-rel="chosen" class="form-control"'))}}</td>
-                        </tr>
-                        <tr>
-                            <td>Kota</td>
-                            <td>{{Form::select('kota',array('' => '-- Pilih Kota --'), Input::old("kota"),array('required', 'id="kota" data-rel="chosen" class="form-control"'))}}</td>
-                        </tr>
-                        <tr>
-                            <td>Kode Pos</td><td><input type="text" class="form-control" name="kodepos" value='{{Input::old("kodepos")}}'></td>
-                        </tr>
-                        <tr>
-                            <td>Telepon / HP</td><td><input type="text" class="form-control" name="telp" value='{{Input::old("telp")}}' required></td>
-                        </tr>
-                        <tr>
-                            <td>Captcha</td><td>{{ HTML::image(Captcha::img(), 'Captcha image') }}
-                            {{Form::text('captcha','captcha',array('class'=>'form-control'))}}</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><input type="checkbox" name="readme" id="inlineCheckbox1" value="1" required> Saya telah membaca dan menyetujui 
-                            <a style="color:#81b011;" href="{{url('service')}}" target="_blank">Persyaratan Member</a></td>
-                        </tr>
-                        <tr>
-                            <td><br><input type="submit" class="btn btn-warning" value="Register"><br><br></td><td>&nbsp;</td>
-                        </tr>
-                    </table>
-                {{Form::close()}}
+                <div class="col-xs-12 col-md-6 zeropadding">
+                    <span>Jika anda telah memiliki akun, maka anda dapat langsung menuju <a href="{{url('member')}}"> halaman login</a></span>
+                    {{Form::open(array('url'=>'member','method'=>'post','class'=>'form-horizontal register'))}}
+                        <div class="form-group">
+                            <label class="col-md-3">Nama</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="nama" value="{{Input::old('nama')}}" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3">Email</label>
+                            <div class="col-md-9">
+                                <input type="email" class="form-control" name="email" value="{{Input::old('email')}}" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3">Password</label>
+                            <div class="col-md-9">
+                                <input type="password" class="form-control" name="password" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3">Konfirmasi Password</label>
+                            <div class="col-md-9">
+                                <input type="password" class="form-control" name="password_confirmation" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3">Alamat</label>
+                            <div class="col-md-9">
+                                <textarea class="form-control" name="alamat" required>{{Input::old("alamat")}}</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3">Negara</label>
+                            <div class="col-md-9">
+                                {{Form::select('negara',array('' => '-- Pilih Negara --') + $negara,Input::old(''),array('required', 'id="negara" data-rel="chosen" class="form-control"'))}}</td>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3">Provinsi</label>
+                            <div class="col-md-9">
+                                {{Form::select('provinsi',array('' => '-- Pilih Provinsi --'), Input::old("provinsi"),array('required', 'id="provinsi" data-rel="chosen" class="form-control"'))}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3">Kota</label>
+                            <div class="col-md-9">
+                                {{Form::select('kota',array('' => '-- Pilih Kota --'), Input::old("kota"),array('required', 'id="kota" data-rel="chosen" class="form-control"'))}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3">Kode Pos</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="kodepos" value='{{Input::old("kodepos")}}'>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3">Telepon / HP</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="telp" value='{{Input::old("telp")}}' required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3">Captcha</label>
+                            <div class="col-md-9">
+                                {{ HTML::image(Captcha::img(), 'Captcha image') }}
+                                {{Form::text('captcha','',array('class'=>'form-control captcha','placeholder'=>'Kode captcha'))}}
+                            </div>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="readme" id="inlineCheckbox1" value="1" required> Saya telah membaca dan menyetujui 
+                            <a id="tos" href="{{url('service')}}" target="_blank">Persyaratan Member</a></td>
+                        </div>
+                        <div class="register">
+                            <input type="submit" class="btn btn-warning" value="Register">
+                        </div>
+                    {{Form::close()}}
+                </div>
             </div>
         </div>
     </div>

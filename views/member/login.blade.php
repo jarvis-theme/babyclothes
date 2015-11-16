@@ -31,7 +31,7 @@
                             <form action="{{url('member/login')}}" method="post" enctype="multipart/form-data">
                                 <div class="content-login">
                                     <b>*Email</b><br>
-                                    <input type="text" placeholder="Email" name="email" class="form-control" required><br>
+                                    <input type="text" placeholder="Email" name="email" class="form-control" value="{{Input::old('email')}}" required><br>
                                     <b>*Password</b><br>
                                     <input type="password" placeholder="Password" name="password" class="form-control" required><br>
                                     <a href="{{url('member/forget-password')}}" class="forgot">Lupa Password?</a><br><br>

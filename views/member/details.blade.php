@@ -1,4 +1,3 @@
-<style type="text/css">#center{text-align: center}</style>
 <section id="main-content">
     <div class="breadcrumb">
         <div>
@@ -23,7 +22,7 @@
 						<thead>
 							<tr>
 								<th><span>ID Order</span></th>
-								<th class="desc"><span>Tanggal Order</span></th>
+								<th><span>Tanggal Order</span></th>
 								<th><span>Detail Order</span></th>
 								<th><span>Total Order</span></th>
 								<th><span>No. Resi</span></th>
@@ -32,11 +31,11 @@
 							</tr>
 						</thead>
 						<tbody>
-						@foreach (list_order() as $item)
+							@foreach (list_order() as $item)
 							<tr>
 								<td>{{$pengaturan->checkoutType==3 ? prefixOrder().$item->kodePreorder : prefixOrder().$item->kodeOrder}}</td>
-								<td>{{$pengaturan->checkoutType==3 ? waktu($item->tanggalPreorder : waktu($item->tanggalOrder)}}</td>
-								<td class="desc">
+								<td>{{$pengaturan->checkoutType==3 ? waktu($item->tanggalPreorder) : waktu($item->tanggalOrder)}}</td>
+								<td>
 									<ul>
 									@if($pengaturan->checkoutType==3) 
 										<li>{{$item->preorderdata->produk->nama}} ({{$item->opsiSkuId==0 ? 'No Opsi' : $item->opsisku->opsi1.($item->opsisku->opsi2!='' ? ' / '.$item->opsisku->opsi2:'').($item->opsisku->opsi3!='' ? ' / '.$item->opsisku->opsi3:'')}}) - {{$item->jumlah}}<li>
@@ -53,41 +52,30 @@
 								@if($pengaturan->checkoutType==1) 
 									@if($item->status==0)
 									<span class="label label-warning">Pending</span>
-									
 									@elseif($item->status==1)
 									<span class="label label-info">Konfirmasi diterima</span>
-									
 									@elseif($item->status==2)
 									<span class="label label-success">Pembayaran diterima</span>
-									
 									@elseif($item->status==3)
 									<span class="label label-success">Terkirim</span>
-									
 									@elseif($item->status==4)
 									<span class="label label-danger">Batal</span>
 									@endif 
 								@else 
 									@if($item->status==0)
 									<span class="label label-warning">Pending</span>
-									
 									@elseif($item->status==1)
 									<span class="label label-info">Konfirmasi DP diterima</span>
-									
 									@elseif($item->status==2)
 									<span class="label label-success">DP terbayar</span>
-									
 									@elseif($item->status==3)
 									<span class="label label-info">Menunggu pelunasan</span>
-									
 									@elseif($item->status==4)
 									<span class="label label-success">Pembayaran lunas</span>
-									
 									@elseif($item->status==5)
 									<span class="label label-success">Terkirim</span>
-									
 									@elseif($item->status==6)
 									<span class="label label-danger">Batal</span>
-									
 									@elseif($item->status==7)
 									<span class="label label-info">Konfirmasi Pelunasan diterima</span>
 									@endif
@@ -106,13 +94,13 @@
 								@endif
 								</td>
 							</tr>
-						@endforeach
+							@endforeach
 						</tbody>
 					</table>
 				</div>
                 {{list_order()->links()}} 
 				@else
-				<span> Belum ada data order</span>
+				<span>Belum ada data order</span>
 				@endif
 			@else 
 				@if($inquiry->count()!=0)
@@ -129,7 +117,7 @@
 						<tbody>
 							@foreach ($inquiry as $item)
 							<tr>
-								<td>{{prefixOrder()}}{{$item->kodeInquiry}}</td>
+								<td>{{prefixOrder().$item->kodeInquiry}}</td>
 								<td>{{waktu($item->created_at)}}</td>
 								<td>
 									@foreach ($item->detailInquiry as $detail)
@@ -149,7 +137,7 @@
 							@endforeach
 						</tbody>
 				@else
-					<tr><td colspan="2">Inquiry anda masih kosong.</td></tr>
+						<tr><td colspan="2">Inquiry anda masih kosong.</td></tr>
 				@endif
 					</table>
 				</div>

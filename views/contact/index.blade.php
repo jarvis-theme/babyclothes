@@ -1,4 +1,3 @@
-<style type="text/css">.contact{margin-bottom:30px}</style>
 <section id="main-content">
     <div class="breadcrumb">
         <div>
@@ -46,11 +45,11 @@
             <div id="best-seller" class="block">
                 <div class="title"><h2>Produk Terlaris</h2></div>
                 <ul class="block-content">
-                    @foreach(best_seller() as $bestproduk )
+                    @foreach(best_seller() as $bestproduk)
                     <li>
                         <a href="{{product_url($bestproduk)}}">
                             <div class="img-block">
-                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'), $bestproduk->nama,array('width'=>'81','height'=>'64','title'=>$bestproduk->nama))}}
+                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'),$bestproduk->nama,array('width'=>'81','height'=>'64','title'=>$bestproduk->nama))}}
                             </div>
                             <p class="product-name">{{short_description($bestproduk->nama,12)}}</p>
                             <p class="price">{{price($bestproduk->hargaJual)}}</p> 
@@ -83,9 +82,9 @@
                     <div class="maps" >
                         <h2 class="title">Peta Lokasi</h2>
                         @if($kontak->lat!='0' || $kontak->lng!='0')
-                        <iframe style="float:right;width:100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{ $kontak->lat.','.$kontak->lng }}&amp;aq=&amp;sll={{ $kontak->lat.','.$kontak->lng }}&amp;sspn=0.006849,0.009892&amp;ie=UTF8&amp;t=m&amp;z=14&amp;output=embed"></iframe><br />
+                        <iframe style="float:right;width:100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{ $kontak->lat.','.$kontak->lng }}&amp;aq=&amp;sll={{ $kontak->lat.','.$kontak->lng }}&amp;sspn={{ $kontak->lat.','.$kontak->lng }}&amp;ie=UTF8&amp;t=m&amp;z=14&amp;output=embed"></iframe><br />
                         @else
-                        <iframe style="float:right;width:100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{ $kontak->alamat }}&amp;aq=0&amp;oq=gegerkalong+hil&amp;sspn=0.006849,0.009892&amp;ie=UTF8&amp;hq=&amp;hnear={{ $kontak->alamat }}&amp;t=m&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br />
+                        <iframe style="float:right;width:100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{str_replace(' ','+',$kontak->alamat)}}&amp;aq=0&amp;oq={{str_replace(' ','+',$kontak->alamat)}}&amp;sspn={{ $kontak->lat.','.$kontak->lng }}&amp;ie=UTF8&amp;hq=&amp;hnear={{str_replace(' ','+',$kontak->alamat)}}&amp;t=m&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br />
                         @endif
                     </div>
                 </div>
@@ -93,6 +92,7 @@
                 <div class="col-md-12">
                     <div class="contact-us" >
                         <div class="contact-desc">
+                            <br>
                             @if(!empty($kontak->alamat))
                                 <strong>Alamat Toko :</strong> {{$kontak->alamat}}<br>
                             @endif
@@ -112,17 +112,18 @@
                         </div>
                         <br><br>
                         <div class="col-md-6 kontak">
+                            <h2>Hubungi Kami</h2>
                             <form class="contact-form" action="{{url('kontak')}}" method="post">
                                 <p class="form-group">
-                                    <input class="form-control" placeholder="Name" name="namaKontak" type="text" required>
+                                    <input class="form-control" placeholder="Nama" name="namaKontak" type="text" required>
                                 </p>
                                 <p class="form-group">
-                                    <input class="form-control" placeholder="Email Address" name="emailKontak" type="email" required>
+                                    <input class="form-control" placeholder="Email Anda" name="emailKontak" type="email" required>
                                 </p>
                                 <p class="form-group">
-                                    <textarea class="form-control" placeholder="Message" name="messageKontak" required></textarea>
+                                    <textarea class="form-control" placeholder="Pesan" name="messageKontak" required></textarea>
                                 </p>
-                                <button class="btn btn-warning submitnewletter">Kirim</button><br><br>
+                                <button class="btn btn-warning submitnewletter" type="submit">Kirim</button><br><br>
                             </form>
                         </div>
                     </div>

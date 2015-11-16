@@ -1,4 +1,3 @@
-<style type="text/css">.find-code{margin-left:10px}.pull-left{float:left}</style>
 <section id="main-content">
     <div class="breadcrumb">
         <div>

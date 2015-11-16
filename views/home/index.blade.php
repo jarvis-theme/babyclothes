@@ -10,12 +10,12 @@
 <div class="inner-column row">
     <div id="center_column" class="col-lg-12 col-xs-12 col-sm-12">
         <div id="all-product-home" class="product_home">
-            <div class="block-title"><h2>Produk Terbaru</h2></div>
+            <div class="block-title"><h2>Koleksi Produk</h2></div>
             <div class="product-list">
                 <div class="row">
-                    @if(count(home_product(null, @$category, @$collection)) > 0)
+                    @if(count(home_product()) > 0)
                     <ul class="grid">
-                        @foreach(home_product(null, @$category, @$collection) as $listproduk)
+                        @foreach(home_product() as $listproduk)
                         <li class="item col-xs-12 col-sm-6 col-md-6 col-lg-3">
                             <div class="prod-container">
                                 <div class="image-container">
@@ -42,7 +42,7 @@
                         </li> 
                         @endforeach
                     </ul>
-                    {{home_product(null, @$category, @$collection)->links()}}
+                    {{home_product()->links()}}
                     @else
                     <article class="text-center"><i>Produk tidak ditemukan</i></article>
                     @endif

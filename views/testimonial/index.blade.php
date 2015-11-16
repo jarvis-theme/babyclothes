@@ -1,4 +1,3 @@
-<style type="text/css">#title-create{margin-top: 1px;margin-bottom: 20px}</style>
 <section id="main-content">
     <div class="breadcrumb">
         <div>
@@ -48,7 +47,7 @@
             <div id="best-seller" class="block">
                 <div class="title"><h2>Produk Terlaris</h2></div>
                 <ul class="block-content">
-                    @foreach(best_seller() as $bestproduk )
+                    @foreach(best_seller() as $bestproduk)
                     <li>
                         <a href="{{product_url($bestproduk)}}">
                             <div class="img-block">
@@ -89,17 +88,20 @@
                 </div>
                 @endforeach
                 <br>
-                <div class="row"><div class="col-md-10">{{list_testimonial()->links()}}</div></div><br><br>
-                <div class="respond col-md-6">
-                    <h3 id="title-create">Buat Testimonial</h3>
-                    <form method="post" action="{{URL::to('testimoni')}}" role="form">
+                <div class="row">
+                    <div class="col-md-12">{{list_testimonial()->links()}}</div>
+                </div>
+                <div class="borderlines"></div>
+                <div class="respond">
+                    <h1 id="title-create">Buat Testimonial</h1><br>
+                    <form class="col-xs-12 col-md-6" id="zeropadding" method="post" action="{{URL::to('testimoni')}}" role="form">
                         <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" class="form-control" name="nama" id="name" placeholder="Enter Name" required>
+                            <label for="name">Nama</label>
+                            <input type="text" class="form-control" name="nama" id="name" required>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Testimonial</label>
-                            <textarea name="testimonial" class="form-control" rows="3" placeholder="Enter Massage" required></textarea>
+                            <textarea name="testimonial" class="form-control" rows="3" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-success">Kirim Testimonial</button>
                         <button type="reset" class="btn btn-default">Reset</button><br><br>

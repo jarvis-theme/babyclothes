@@ -17,9 +17,9 @@
         <div id="center_column" class="inner-bg col-lg-9 col-xs-12 col-sm-8">
             {{Form::open(array('url'=>'member/update','method'=>'put','class'=>'form-horizontal'))}}
                 <div class="form-group">
-                    <label for="inputName" class="col-md-2 control-label">Name</label>
+                    <label for="inputName" class="col-md-2 control-label">Nama</label>
                     <div class="col-md-4">
-                        <input type="text" class="form-control" id="inputName" name="nama" value='{{$user->nama}}' placeholder="Name" required>
+                        <input type="text" class="form-control" id="inputName" name="nama" value="{{$user->nama}}" placeholder="Name" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -31,11 +31,11 @@
                 <div class="form-group">
                     <label for="inputPhone" class="col-md-2 control-label">Telepon</label>
                     <div class="col-md-4">
-                        <input type="text" class="form-control" id="inputPhone" name='telp' value='{{$user->telp}}' placeholder="Phone" required>
+                        <input type="text" class="form-control" id="inputPhone" name="telp" value="{{$user->telp}}" placeholder="Phone" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputCountry" class="col-md-2 control-label">Country</label>
+                    <label for="inputCountry" class="col-md-2 control-label">Negara</label>
                     <div class="col-md-4">
                         {{Form::select('negara',array('' => '-- Pilih Negara --') + $negara , ($user ? $user->negara :(Input::old("negara")? Input::old("negara") :"")), array('required'=>'', 'id'=>'negara', 'class'=>'form-control'))}}
                     </div>
@@ -55,13 +55,13 @@
                 <div class="form-group">
                     <label for="inputAddress" class="col-md-2 control-label">Alamat</label>
                     <div class="col-md-4">
-                       <textarea class="form-control" rows="3" placeholder="Address" name='alamat' required>{{$user->alamat}}</textarea>
+                       <textarea class="form-control" rows="3" placeholder="Address" name="alamat" required>{{$user->alamat}}</textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputZip" class="col-md-2 control-label">Kode Pos</label>
                     <div class="col-md-4">
-                        <input type="text" class="form-control" id="inputZip" placeholder="Kode Pos" name='kodepos' value='{{$user->kodepos}}' required>
+                        <input type="text" class="form-control" id="inputZip" placeholder="Kode Pos" name="kodepos" value="{{$user->kodepos}}" required>
                     </div>
                 </div>
                 <hr>

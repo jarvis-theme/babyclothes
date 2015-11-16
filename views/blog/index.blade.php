@@ -1,4 +1,3 @@
-<style type="text/css">.result{font-style:italic; text-align:center}</style>
 <section id="main-content">
     <div class="breadcrumb">
         <div>

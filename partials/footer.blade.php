@@ -15,18 +15,18 @@
     <div class="top-footer">
         <div class="row">
             <div id="about-foot" class="col-xs-12 col-lg-4">
-                <h4 class="title">About Us</h4>
+                <h4 class="title">Tentang Kami</h4>
                 <div class="block-content">
                     <p>{{short_description($aboutUs[1]->isi,400)}} </p>
                 </div>
             </div>
-            @foreach($tautan as $key=>$menu)
+            @foreach(all_menu() as $key=>$menu)
               @if($key == '1' || $key == '2')
                 <div id="links-foot" class="col-xs-12 col-lg-2">
                     <h4 class="title">{{$menu->nama}}</h4>
                     <div class="block-content">
                         <ul>
-                        @foreach($quickLink as $link_menu)
+                        @foreach($menu->link as $link_menu)
                             @if($menu->id == $link_menu->tautanId)
                             <li><a href="{{menu_url($link_menu)}}">{{$link_menu->nama}}</a></li>
                             @endif
@@ -36,18 +36,25 @@
                 </div>
                 @endif
             @endforeach
-            {{ Theme::partial('subscribe') }}
+            {{ Theme::partial('subscribe') }}   
         </div>
         <div class="row sosial">
             <div class="bank-logo col-sm-8">
-                @foreach(list_banks() as $value)
-                <img src="{{bank_logo($value)}}" class="img-responsive" alt="{{$value->bankdefault->nama}}" title="Payment">
-                @endforeach
-                @foreach(list_payments() as $pay)
-                    @if($pay->nama == 'ipaymu' && $pay->aktif == 1)
-                    <img class="img-responsive" src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" title="Payment" />
-                    @endif
-                @endforeach
+                @if(!empty($bank))
+                    @foreach(list_banks() as $value)
+                    <img src="{{bank_logo($value)}}" class="img-responsive" alt="{{$value->bankdefault->nama}}" title="Payment">
+                    @endforeach
+                @endif
+                @if(count(list_payments()) > 0)
+                    @foreach(list_payments() as $pay)
+                        @if($pay->nama == 'ipaymu' && $pay->aktif == 1)
+                        <img class="img-responsive" src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" title="Payment" />
+                        @endif
+                        @if($pay->nama == 'bitcoin' && $pay->aktif == 1)
+                        <img class="img-responsive" src="{{url('img/bitcoin.png')}}" alt="bitcoin" title="Payment" />
+                        @endif
+                    @endforeach
+                @endif
                 @if(count(list_dokus()) > 0 && list_dokus()->status == 1)
                 <img class="img-responsive" src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" title="Payment" />
                 @endif

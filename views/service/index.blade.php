@@ -23,7 +23,7 @@
             <div id="best-seller" class="block">
                 <div class="title"><h2>Produk Terlaris</h2></div>
                 <ul class="block-content">
-                    @foreach(best_seller() as $bestproduk )
+                    @foreach(best_seller() as $bestproduk)
                     <li>
                         <a href="{{product_url($bestproduk)}}">
                             <div class="img-block">
@@ -58,15 +58,19 @@
             <!-- <h3 class="title">Layanan Pelanggan</h3> -->
             <div class="register-page">
                 <article class="col-lg-12 col-md-12 col-xs-12">
-                    <h4>Term of Service</h4>
+                    <h4>Kebijakan Layanan</h4>
                     <p>{{$service->tos}}</p>
                 </article>
+                <div class="clearfix"></div>
+                <hr>
                 <article class="col-lg-12 col-md-12 col-xs-12">
-                    <h4>Refund Policy</h4>
+                    <h4>Kebijakan Pengembalian</h4>
                     <p>{{$service->refund}}</p>
                 </article>
+                <div class="clearfix"></div>
+                <hr>
                 <article class="col-lg-12 col-md-12 col-xs-12">
-                    <h4>Privacy Policy</h4>
+                    <h4>Kebijakan Privasi</h4>
                     <p>{{$service->privacy}}</p>
                 </article>
             </div>

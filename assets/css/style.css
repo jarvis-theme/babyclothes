@@ -172,3 +172,21 @@ input.form-control.lp{width: 70%}
 span.input-group-btn.btnlp{float: left}
 .fb_reset{ display: inline-block }
 .fb-share-button { top: -5px }
+.result{font-style:italic; text-align:center}
+.items{margin-left: 8px}
+.find-code{margin-left:10px}.pull-left{float:left}
+.contact{margin-bottom:30px}
+#center{text-align: center}
+#tos{color:#81b011}
+#iconstocks{color: #d9534f}
+.logo-text{color:#5EC80C}
+.tabs-description > article {margin-bottom:10px}#title-blog{margin-bottom: 15px}
+#title-create{margin-top: 1px;margin-bottom: 20px}
+.borderlines{border-bottom: 1px dotted #D2D2D2; margin: 20px 0px}
+#zeropadding{padding: 0}
+.register{margin-top: 30px}
+.zeropadding{padding: 0}
+@media only screen and (min-width: 1200px) {
+	.captcha{width: 65%; float: right}
+}
+#logos{max-height: 130px; width: auto}

@@ -1,4 +1,3 @@
-<style type="text/css">.tabs-description > article {margin-bottom:10px}#title-blog{margin-bottom: 15px}</style>
 <section id="main-content">
     <div class="breadcrumb">
         <div>
@@ -48,7 +47,7 @@
             <div id="best-seller" class="block">
                 <div class="title"><h2>Produk Terlaris</h2></div>
                 <ul class="block-content">
-                    @foreach(best_seller() as $bestproduk )
+                    @foreach(best_seller() as $bestproduk)
                     <li>
                         <a href="{{product_url($bestproduk)}}">
                             <div class="img-block">
@@ -82,7 +81,7 @@
         
         @if($jumlahCari != 0)
             @if(count($hasilpro) > 0)
-            <div id="center_column" class="col-lg-9 col-xs-12 col-sm-8">
+            <div id="center_column" class="col-xs-12 col-sm-8 col-lg-9">
                 <div class="product-list">
                     <div class="row">
                         <ul class="grid">
@@ -120,19 +119,14 @@
             {{$hasilpro->links()}}
             @endif
             @if(count($hasilhal) > 0 || count($hasilblog) > 0)
-            <div id="center_column" class="inner-bg col-lg-9 col-xs-12 col-sm-8">
+            <div id="center_column" class="inner-bg col-xs-12 col-sm-8 col-lg-9 pull-right">
                 <div class="tabs-description">
-                    @foreach($hasilhal as $blog)
+                    @foreach($hasilhal as $hal)
                     <article class="col-lg-12">
-                        <hr>
-                        <h3 class="title">{{$blog->judul}}</h3>
+                        <h3 class="title">{{$hal->judul}}</h3>
                         <p>
-                            <small><i class="fa fa-calendar"></i> {{waktuTgl($blog->updated_at)}}</small>&nbsp;&nbsp;
-                            <span class="date-post"><i class="fa fa-tags"></i> <a href="{{blog_category_url(@$blog->kategori)}}">{{@$blog->kategori->nama}}</a></span>
-                        </p>
-                        <p>
-                            {{shortDescription($blog->isi,300)}}<br>
-                            <a href="{{blog_url($blog)}}" class="theme">Baca Selengkapnya →</a>
+                            {{shortDescription($hal->isi,300)}}<br>
+                            <a href="{{url('halaman/'.$hal->slug)}}" class="theme">Baca Selengkapnya →</a>
                         </p>
                     </article>
                     @endforeach

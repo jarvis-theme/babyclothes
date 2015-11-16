@@ -47,7 +47,7 @@
             <div id="best-seller" class="block">
                 <div class="title"><h2>Produk Terlaris</h2></div>
                 <ul class="block-content">
-                    @foreach(best_seller() as $bestproduk )
+                    @foreach(best_seller() as $bestproduk)
                     <li>
                         <a href="{{product_url($bestproduk)}}">
                             <div class="img-block">
@@ -90,13 +90,13 @@
                             <div id="thumb-view">
                                 <ul id="thumb-list" class="owl-carousel owl-theme">
                                     @if($produk->gambar2 != '')
-                                    <li class="item"><a class="zoom fancybox" href="{{product_image_url($produk->gambar2,'large')}}" title="{{$produk->nama}}"><img src="{{product_image_url($produk->gambar2,'medium')}}" width="113" height="152" alt="thumbnail" /></a></li>
+                                    <li class="item"><a class="zoom fancybox" href="{{product_image_url($produk->gambar2,'large')}}" title="{{$produk->nama}}"><img src="{{product_image_url($produk->gambar2,'thumb')}}" width="113" height="152" alt="thumbnail 1" /></a></li>
                                     @endif
                                     @if($produk->gambar3 != '')
-                                    <li class="item"><a class="zoom fancybox" href="{{product_image_url($produk->gambar3,'large')}}" title="{{$produk->nama}}"><img src="{{product_image_url($produk->gambar3,'medium')}}" width="113" height="152" alt="thumbnail" /></a></li>
+                                    <li class="item"><a class="zoom fancybox" href="{{product_image_url($produk->gambar3,'large')}}" title="{{$produk->nama}}"><img src="{{product_image_url($produk->gambar3,'thumb')}}" width="113" height="152" alt="thumbnail 2" /></a></li>
                                     @endif
                                     @if($produk->gambar4 != '')
-                                    <li class="item"><a class="zoom fancybox" href="{{product_image_url($produk->gambar4,'large')}}" title="{{$produk->nama}}"><img src="{{product_image_url($produk->gambar4,'medium')}}" width="113" height="152" alt="thumbnail" /></a></li>
+                                    <li class="item"><a class="zoom fancybox" href="{{product_image_url($produk->gambar4,'large')}}" title="{{$produk->nama}}"><img src="{{product_image_url($produk->gambar4,'thumb')}}" width="113" height="152" alt="thumbnail 3" /></a></li>
                                     @endif
                                 </ul>
                             </div>
@@ -117,7 +117,7 @@
                             @else
                             <div class="noavail-info">
                                 <span class="fa-stack fa-1x">
-                                    <i style="color: #d9534f;" class="fa fa-circle fa-stack-2x"></i>
+                                    <i id="iconstocks" class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-close fa-stack-1x fa-inverse"></i>
                                 </span>
                                 <span class="instock">  Stok Kosong</span>
@@ -169,7 +169,7 @@
             </div>
             @if(count(other_product($produk)) > 0)
             <div id="related-product" class="product-list">
-                <h2 class="title">Related Product</h2>
+                <h2 class="title">Produk Lainnya</h2>
                 <div class="row">
                     <ul class="grid">
                         @foreach(other_product($produk) as $relproduk)

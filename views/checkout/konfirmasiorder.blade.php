@@ -1,4 +1,3 @@
-<style type="text/css">.items{margin-left: 8px}</style>
 <section id="main-content">
     <div class="breadcrumb">
         <div>
@@ -61,33 +60,33 @@
                             <td class="total-price">
                             @if($checkouttype==1)
                                 @if($order->status==0)
-                                    <span class="label label-warning">Pending</span>
+                                <span class="label label-warning">Pending</span>
                                 @elseif($order->status==1)
-                                    <span class="label label-danger">Konfirmasi diterima</span>
+                                <span class="label label-danger">Konfirmasi diterima</span>
                                 @elseif($order->status==2)
-                                    <span class="label label-success">Pembayaran diterima</span>
+                                <span class="label label-success">Pembayaran diterima</span>
                                 @elseif($order->status==3)
-                                    <span class="label label-info">Terkirim</span>
+                                <span class="label label-info">Terkirim</span>
                                 @elseif($order->status==4)
-                                    <span class="label label-default">Batal</span>
+                                <span class="label label-default">Batal</span>
                                 @endif
                             @else 
                                 @if($order->status==0)
-                                    <span class="label label-warning">Pending</span>
+                                <span class="label label-warning">Pending</span>
                                 @elseif($order->status==1)
-                                    <span class="label label-danger">Konfirmasi DP diterima</span>
+                                <span class="label label-danger">Konfirmasi DP diterima</span>
                                 @elseif($order->status==2)
-                                    <span class="label label-info">DP terbayar</span>
+                                <span class="label label-info">DP terbayar</span>
                                 @elseif($order->status==3)
-                                    <span class="label label-info">Menunggu pelunasan</span>
+                                <span class="label label-info">Menunggu pelunasan</span>
                                 @elseif($order->status==4)
-                                    <span class="label label-success">Pembayaran lunas</span>
+                                <span class="label label-success">Pembayaran lunas</span>
                                 @elseif($order->status==5)
-                                    <span class="label label-info">Terkirim</span>
+                                <span class="label label-info">Terkirim</span>
                                 @elseif($order->status==6)
-                                    <span class="label label-default">Batal</span>
+                                <span class="label label-default">Batal</span>
                                 @elseif($order->status==7)
-                                    <span class="label label-info">Konfirmasi Pelunasan diterima</span>
+                                <span class="label label-info">Konfirmasi Pelunasan diterima</span>
                                 @endif
                             @endif  
                             </td>
@@ -161,6 +160,13 @@
                 <p>Silakan melakukan pembayaran dengan paypal Anda secara online via paypal payment gateway. Transaksi ini berlaku jika pembayaran dilakukan sebelum {{$expired}}. Klik tombol "Bayar Dengan Paypal" di bawah untuk melanjutkan proses pembayaran.</p>
                 {{$paypalbutton}}
                 <br>
+            @elseif($order->jenisPembayaran==6)
+                @if($order->status == 0)
+                <h3><center>Konfirmasi Pembayaran Via Bitcoin</center></h3><br>
+                <p>Silahkan melakukan pembayaran dengan bitcoin Anda secara online via bitcoin payment gateway. Transaksi ini berlaku jika pembayaran dilakukan sebelum <b>{{$expired_bitcoin}}</b>. Klik tombol "Pay with Bitcoin" di bawah untuk melanjutkan proses pembayaran.</p>
+                {{$bitcoinbutton}}
+                <br>
+                @endif
             @endif
         </div>
     </div>

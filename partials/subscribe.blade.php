@@ -4,7 +4,7 @@
         <form action="{{@$mailing->action}}" method="post" class="subscribe">
         	Jangan lewatkan update terbaru dari toko kami dengan bergabung di mailing list kami.
             <br><br>
-            <p><input type="text" nama="email" placeholder="Email" {{ @$mailing->action==''? 'disabled=""' : ''}}></p>
+            <p><input type="text" nama="email" placeholder="Email anda" {{ @$mailing->action==''? 'disabled=""' : ''}}></p>
             <button class="btn fr" type="submit" {{ @$mailing->action==''?'disabled="disabled" style="opacity: 0.5; cursor: default;"':'' }}>Subscribe</button>
             <div class="clr"></div>
         </form>
