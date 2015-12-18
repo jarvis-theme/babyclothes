@@ -46,7 +46,7 @@ h1.cms-title{color:#81b011;font-size:35px;font-weight:300;line-height:normal;mar
     #center-header {background:none}
     #search-top .navbar-form input.form-control {width:250px}
     #testimonial  {overflow:hidden}
-    #testimonial .img-testimonial {width:auto; padding:0; float:none; margin:0 auto; text-align:center}
+    #testimonial .img-testimonial {width:auto; padding:0; margin:0 auto}
     #testimonial .img-testimonial img {margin:0 auto}
     #testimonial .text-testi {margin:20px 20px 0; width:auto; text-align:center; padding:0}
     #testimonial .flex-direction-nav a.flex-next {position:relative; padding:0; margin:20px auto}
@@ -176,7 +176,7 @@ span.input-group-btn.btnlp{float: left}
 .items{margin-left: 8px}
 .find-code{margin-left:10px}.pull-left{float:left}
 .contact{margin-bottom:30px}
-#center{text-align: center}
+#center, .center{text-align: center}
 #tos{color:#81b011}
 #iconstocks{color: #d9534f}
 .logo-text{color:#5EC80C}
@@ -186,7 +186,13 @@ span.input-group-btn.btnlp{float: left}
 #zeropadding{padding: 0}
 .register{margin-top: 30px}
 .zeropadding{padding: 0}
+#logos{max-height: 130px; width: auto}
 @media only screen and (min-width: 1200px) {
 	.captcha{width: 65%; float: right}
 }
-#logos{max-height: 130px; width: auto}
+@media only screen and (max-width: 396px) {
+	input.form-control.lp{width: 100% !important}
+}
+@media only screen and (max-width: 810px) {
+	.padd{padding: 0px 15px}
+}

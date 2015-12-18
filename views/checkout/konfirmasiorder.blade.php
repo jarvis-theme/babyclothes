@@ -7,7 +7,7 @@
     </div>
 
     <div class="inner-column row padd">
-        <div id="center_column" class="inner-bg col-lg-12 col-xs-12 col-sm-8">
+        <div id="center_column" class="inner-bg col-lg-12 col-xs-12">
             <h2 class="title"><i class="fa fa-shopping-cart"></i> Detail Order</h2>
             <hr />
             <div class="table-responsive">
@@ -98,9 +98,9 @@
                 <div class="col-md-5">
                 @if($order->jenisPembayaran==1)
                     @if($checkouttype==1)   
-                    {{-- */$konfirmasi = 'konfirmasiorder/'/* --}}
+                    {{-- */ $konfirmasi = 'konfirmasiorder/' /* --}}
                     @else                         
-                    {{-- */$konfirmasi = 'konfirmasipreorder/'/* --}}
+                    {{-- */ $konfirmasi = 'konfirmasipreorder/' /* --}}
                     @endif
                     {{Form::open(array('url'=> $konfirmasi.$order->id, 'method'=>'put'))}}                            
                         <div class="form-group">

@@ -86,7 +86,7 @@
                     <div class="row">
                         <ul class="grid">
                             @foreach($hasilpro as $listproduk)
-                            <li class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                            <li class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
                                 <div class="prod-container">
                                     <div class="image-container">
                                         <a href="{{product_url($listproduk)}}">

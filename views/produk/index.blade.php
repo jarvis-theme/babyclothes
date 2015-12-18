@@ -6,7 +6,7 @@
         </div>
     </div>
     <div class="inner-column row">
-        <div id="left_sidebar" class="col-lg-3 col-xs-12 col-sm-4">
+        <div id="left_sidebar" class="col-xs-12 col-lg-3 col-sm-4">
             @if(count(list_category()) > 0)
             <div id="categories" class="block">
                 <div class="title"><h2>Kategori</h2></div>
@@ -78,13 +78,13 @@
             </div>
             @endif
         </div>
-        <div id="center_column" class="col-lg-9 col-xs-12 col-sm-8">
+        <div id="center_column" class="col-xs-12 col-lg-9 col-sm-8">
             <div class="product-list">
                 <div class="row">
-                     @if(count(list_product(null, @$category, @$collection)) > 0)
+                    @if(count(list_product(null, @$category, @$collection)) > 0)
                     <ul class="grid">
                         @foreach(list_product(null, @$category, @$collection) as $listproduk)
-                        <li class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                        <li class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
                             <div class="prod-container">
                                 <div class="image-container">
                                     <a href="{{product_url($listproduk)}}">

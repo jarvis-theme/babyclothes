@@ -6,7 +6,7 @@
         </div>
     </div>
     <div class="inner-column row padd">
-        <div id="center_column" class="inner-bg col-lg-12 col-xs-12 col-sm-8">
+        <div id="center_column" class="inner-bg col-lg-12 col-xs-12">
             <div class="tab-title-top"><h1>Register</h1></div>
             <div class="register-page">
                 <div class="col-xs-12 col-md-6 zeropadding">
@@ -45,31 +45,31 @@
                         <div class="form-group">
                             <label class="col-md-3">Negara</label>
                             <div class="col-md-9">
-                                {{Form::select('negara',array('' => '-- Pilih Negara --') + $negara,Input::old(''),array('required', 'id="negara" data-rel="chosen" class="form-control"'))}}</td>
+                                {{Form::select('negara',array('' => '-- Pilih Negara --') + $negara, Input::old('negara'),array('required', "id"=>"negara", "data-rel"=>"chosen", "class"=>"form-control"))}}</td>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3">Provinsi</label>
                             <div class="col-md-9">
-                                {{Form::select('provinsi',array('' => '-- Pilih Provinsi --'), Input::old("provinsi"),array('required', 'id="provinsi" data-rel="chosen" class="form-control"'))}}
+                                {{Form::select('provinsi',array('' => '-- Pilih Provinsi --') + $provinsi, Input::old("provinsi"),array('required', "id"=>"provinsi", "data-rel"=>"chosen", "class"=>"form-control"))}}
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3">Kota</label>
                             <div class="col-md-9">
-                                {{Form::select('kota',array('' => '-- Pilih Kota --'), Input::old("kota"),array('required', 'id="kota" data-rel="chosen" class="form-control"'))}}
+                                {{Form::select('kota',array('' => '-- Pilih Kota --') + $kota, Input::old("kota"),array('required', "id"=>"kota", "data-rel"=>"chosen", "class"=>"form-control"))}}
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3">Kode Pos</label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" name="kodepos" value='{{Input::old("kodepos")}}'>
+                                <input type="text" class="form-control" name="kodepos" value="{{Input::old('kodepos')}}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3">Telepon / HP</label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" name="telp" value='{{Input::old("telp")}}' required>
+                                <input type="text" class="form-control" name="telp" value="{{Input::old('telp')}}" required>
                             </div>
                         </div>
                         <div class="form-group">

@@ -46,7 +46,7 @@
             <div class="pull-right search-form">
                 <form class="navbar-form" role="search" action="{{url('search')}}" method="post">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search" name="search" required>
+                        <input type="text" class="form-control" placeholder="Cari Produk" name="search" required>
                         <div class="input-group-btn">
                             <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                         </div>

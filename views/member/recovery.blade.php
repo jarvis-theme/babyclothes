@@ -1,5 +1,5 @@
 <div class="inner-column row padd">
-    <div id="center_column" class="inner-bg col-lg-12 col-xs-12 col-sm-8">
+    <div id="center_column" class="inner-bg col-xs-12 col-lg-12">
         <div class="col-xs-12 col-sm-8 col-lg-9">
             <h2>Forget Password</h2><br>
             {{Form::open(array('url' => 'member/recovery/'.$id.'/'.$code, 'class' => 'form-horizontal'))}}

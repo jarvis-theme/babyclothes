@@ -1,9 +1,9 @@
 <footer>
     <div id="testimonial">
-        <div class="img-testimonial col-sm-4">
+        <div class="img-testimonial col-lg-4">
             <img class="img-responsive" src="{{url(dirTemaToko().'babyclothes/assets/images/img-testimonial.png')}}" alt="{{'Testimonial '.Theme::place('title')}}" width="382" height="115" />
         </div>
-        <div class="col-sm-7 text-testi flexslider">
+        <div class="col-lg-7 text-testi flexslider">
             <ul class="slides">
                 @foreach(list_testimonial() as $key=>$value)
                 <li>{{short_description($value->isi,136)}} ,<br><strong> {{$value->nama}}</strong></li>
@@ -40,13 +40,16 @@
         </div>
         <div class="row sosial">
             <div class="bank-logo col-sm-8">
-                @if(!empty($bank))
+                @if(list_banks()->count() > 0)
                     @foreach(list_banks() as $value)
                     <img src="{{bank_logo($value)}}" class="img-responsive" alt="{{$value->bankdefault->nama}}" title="Payment">
                     @endforeach
                 @endif
                 @if(count(list_payments()) > 0)
                     @foreach(list_payments() as $pay)
+                        @if($pay->nama == 'paypal' && $pay->aktif == 1)
+                        <img class="img-responsive" src="{{url('img/bank/paypal.png')}}" alt="paypal" title="Payment" />
+                        @endif
                         @if($pay->nama == 'ipaymu' && $pay->aktif == 1)
                         <img class="img-responsive" src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" title="Payment" />
                         @endif

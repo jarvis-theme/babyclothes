@@ -14,7 +14,7 @@
                 </ul>
             </div>
         </div>
-        <div id="center_column" class="inner-bg col-lg-9 col-xs-12 col-sm-8">
+        <div id="center_column" class="inner-bg col-xs-12 col-sm-8 col-lg-9">
             {{Form::open(array('url'=>'member/update','method'=>'put','class'=>'form-horizontal'))}}
                 <div class="form-group">
                     <label for="inputName" class="col-md-2 control-label">Nama</label>
@@ -25,7 +25,7 @@
                 <div class="form-group">
                     <label for="inputEmail1" class="col-md-2 control-label">Email</label>
                     <div class="col-md-4">
-                        <input type="email" class="form-control" name='email' value='{{$user->email}}' id="inputEmail1" placeholder="Email" required>
+                        <input type="email" class="form-control" name="email" value="{{$user->email}}" id="inputEmail1" placeholder="Email" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -37,19 +37,19 @@
                 <div class="form-group">
                     <label for="inputCountry" class="col-md-2 control-label">Negara</label>
                     <div class="col-md-4">
-                        {{Form::select('negara',array('' => '-- Pilih Negara --') + $negara , ($user ? $user->negara :(Input::old("negara")? Input::old("negara") :"")), array('required'=>'', 'id'=>'negara', 'class'=>'form-control'))}}
+                        {{Form::select('negara',array('' => '-- Pilih Negara --') + $negara, ($user ? $user->negara :(Input::old("negara")? Input::old("negara") :"")), array('required'=>'', 'id'=>'negara', 'class'=>'form-control'))}}
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputCountry" class="col-md-2 control-label">Provinsi</label>
                     <div class="col-md-4">
-                        {{Form::select('provinsi',array('' => '-- Pilih Provinsi --') + $provinsi , ($user ? $user->provinsi :(Input::old("provinsi")? Input::old("provinsi") :"")),array('required'=>'','id'=>'provinsi', 'class'=>'form-control'))}}
+                        {{Form::select('provinsi',array('' => '-- Pilih Provinsi --') + $provinsi, ($user ? $user->provinsi :(Input::old("provinsi")? Input::old("provinsi") :"")),array('required'=>'','id'=>'provinsi', 'class'=>'form-control'))}}
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputCountry" class="col-md-2 control-label">Kota</label>
                     <div class="col-md-4">
-                        {{Form::select('kota',array('' => '-- Pilih Kota --') + $kota , ($user ? $user->kota :(Input::old("kota")? Input::old("kota") :"")),array('required'=>'','id'=>'kota', 'class'=>'form-control'))}}
+                        {{Form::select('kota',array('' => '-- Pilih Kota --') + $kota, ($user ? $user->kota :(Input::old("kota")? Input::old("kota") :"")),array('required'=>'','id'=>'kota', 'class'=>'form-control'))}}
                     </div>
                 </div> 
                 <div class="form-group">

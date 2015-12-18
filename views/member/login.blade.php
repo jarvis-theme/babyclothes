@@ -6,7 +6,7 @@
         </div>
     </div>
     <div class="inner-column row padd">
-        <div id="center_column" class="inner-bg col-lg-12 col-xs-12 col-sm-8">
+        <div id="center_column" class="inner-bg col-lg-12 col-xs-12">
             <div class="tab-title-top"><h1>Login Member</h1></div>
             <div class="login-page">
                 <div class="row">
@@ -23,7 +23,7 @@
                             <a href="{{url('member/create')}}" class="register btn btn-warning">Register</a>
                         </div>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-6 col-lg-4">
                         <div class="login-wrap">
                             <h2 class="title">Login</h2>
                             <h4>Sudah Terdaftar ?</h4>

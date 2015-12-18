@@ -2,7 +2,7 @@
     <div class="row">
         @foreach(horizontal_banner() as $banners)
         <a href="{{URL::to($banners->url)}}">
-            {{HTML::image(banner_image_url($banners->gambar),'banner',array('width'=>'270','height'=>'388','class'=>'img-responsive'))}}
+            {{HTML::image(banner_image_url($banners->gambar),'Info Promo',array('width'=>'270','height'=>'388','class'=>'img-responsive'))}}
         </a>
         @endforeach
     </div>
