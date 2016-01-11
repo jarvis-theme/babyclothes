@@ -17,7 +17,7 @@
             <div id="about-foot" class="col-xs-12 col-lg-4">
                 <h4 class="title">Tentang Kami</h4>
                 <div class="block-content">
-                    <p>{{short_description($aboutUs[1]->isi,400)}} </p>
+                    <p>{{short_description(about_us()->isi,400)}} </p>
                 </div>
             </div>
             @foreach(all_menu() as $key=>$menu)
