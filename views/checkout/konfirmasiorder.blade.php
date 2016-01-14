@@ -123,7 +123,7 @@
                         <div class="form-group">
                             <label  class="control-label"> Jumlah:</label>
                             @if($checkouttype==1)        
-                            <input type="text" class="form-control" placeholder="jumlah yg terbayar" name='jumlah' value='{{$order->status==0 ? $order->total : ""}}' required>
+                            <input type="text" class="form-control" placeholder="Jumlah Transfer Dana" name='jumlah' value='{{$order->status==0 ? $order->total : ""}}' required>
                             @else
                                 @if($order->status < 2)
                                 <input class="form-control" placeholder="Jumlah pembayaran" type="text" name='jumlah' value='{{$order->dp}}' required>

@@ -8,39 +8,55 @@
     <div class="inner-column row">
         <div id="left_sidebar" class="col-lg-3 col-xs-12 col-sm-4">
             @if(count(list_category()) > 0)
-            <div id="categories" class="block">
+            <div class="block accordion-widget">
                 <div class="title"><h2>Kategori</h2></div>
-                <ul class="block-content">
-                @foreach(list_category() as $side_menu)
+                <div class="block-content accordion">
+                    @foreach(list_category() as $side_menu)
                     @if($side_menu->parent == '0')
-                    <li>
-                        <a href="{{category_url($side_menu)}}">{{short_description($side_menu->nama,20)}}</a>
+                    <div class="accordion-group side-accor">
+                        <div class="accordion-heading">
+                            @if(count($side_menu->anak) >= 1)
+                            <a href="{{category_url($side_menu)}}"><span class="accordion-toggle collapsed" data-toggle="collapse" href="#{{short_description(preg_replace('/[^a-zA-Z0-9-]/', '', $side_menu->nama),23)}}"></span>
+                            @else
+                            <a class="collapsed" href="{{category_url($side_menu)}}">
+                            @endif  
+                                {{$side_menu->nama}}
+                            </a>
+                        </div>
                         @if($side_menu->anak->count() != 0)
-                        <ul class="block1">
-                            @foreach($side_menu->anak as $submenu)
+                        <div id="{{short_description(preg_replace('/[^a-zA-Z0-9-]/', '', $side_menu->nama),23)}}" class="accordion-body collapse submenu">
+                            <div class="accordion-inner">
+                                @foreach($side_menu->anak as $submenu)
                                 @if($submenu->parent == $side_menu->id)
-                                <li>
-                                    <a href="{{category_url($submenu)}}">{{short_description($submenu->nama,20)}}</a>
-                                    @if($submenu->anak->count() != 0)
-                                    <ul class="block2">
-                                        @foreach($submenu->anak as $submenu2)
-                                        @if($submenu2->parent == $submenu->id)
-                                        <li>
-                                            <a href="{{category_url($submenu2)}}">{{short_description($submenu2->nama,20)}}</a>
-                                        </li>
+                                    <div class="accordion-heading">
+                                        @if(count($submenu->anak) > 0 )
+                                        <a href="{{category_url($submenu)}}"><span href="#{{short_description(preg_replace('/[^a-zA-Z0-9-]/', '', $submenu->nama),23)}}" class="accordion-toggle collapsed submenu" data-toggle="collapse"></span>
+                                        @else
+                                        <a href="{{category_url($submenu)}}" class="collapsed">
                                         @endif
-                                        @endforeach
-                                    </ul>
+                                            {{$submenu->nama}}
+                                        </a>
+                                    </div>
+                                    @if($submenu->anak->count() != 0)
+                                    <div id="{{short_description(preg_replace('/[^a-zA-Z0-9-]/', '', $submenu->nama),23)}}" class="accordion-body collapse">
+                                        <ul>
+                                            @foreach($submenu->anak as $submenu2)
+                                            @if($submenu2->parent == $submenu->id)
+                                            <li><a href="{{category_url($submenu2)}}">{{$submenu2->nama}}</a></li>
+                                            @endif
+                                            @endforeach
+                                        </ul>
+                                    </div>
                                     @endif
-                                </li>
                                 @endif
-                            @endforeach
-                        </ul>
+                                @endforeach
+                            </div>
+                        </div>
                         @endif
-                    </li>
+                    </div>
                     @endif
-                @endforeach
-                </ul>
+                    @endforeach
+                </div>
             </div>
             @endif
             @if(count(best_seller()) > 0)
@@ -85,8 +101,9 @@
                 <div class="product-list">
                     <div class="row">
                         <ul class="grid">
+                            {{-- */ $i = 1 /* --}}
                             @foreach($hasilpro as $listproduk)
-                            <li class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+                            <li class="col-xs-6 col-sm-4 col-lg-4">
                                 <div class="prod-container">
                                     <div class="image-container">
                                         <a href="{{product_url($listproduk)}}">
@@ -110,6 +127,10 @@
                                     <div class="clr"></div>
                                 </div>
                             </li>
+                            @if($i % 2 == 0)
+                            <div class="clr visible-xs"></div>
+                            @endif
+                            {{-- */ $i++ /* --}}
                             @endforeach
                         </ul>
                     </div>

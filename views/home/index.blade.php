@@ -2,7 +2,7 @@
     <div class="row">
         @foreach(horizontal_banner() as $banners)
         <a href="{{URL::to($banners->url)}}">
-            {{HTML::image(banner_image_url($banners->gambar),'Info Promo',array('width'=>'270','height'=>'388','class'=>'img-responsive'))}}
+            {{HTML::image(banner_image_url($banners->gambar),'Info Promo',array('width'=>'270','class'=>'img-responsive'))}}
         </a>
         @endforeach
     </div>
@@ -14,13 +14,14 @@
             <div class="product-list">
                 <div class="row">
                     @if(count(home_product()) > 0)
+                    {{-- */ $i = 1 /* --}}
                     <ul class="grid">
                         @foreach(home_product() as $listproduk)
-                        <li class="item col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                        <li class="item col-xs-6 col-sm-4 col-md-4 col-lg-3">
                             <div class="prod-container">
                                 <div class="image-container">
                                     <a href="{{product_url($listproduk)}}">
-                                        {{HTML::image(product_image_url($listproduk->gambar1,'medium'),$listproduk->nama,array('title'=>$listproduk->nama))}}
+                                        {{ HTML::image(product_image_url($listproduk->gambar1,'medium'),$listproduk->nama,array('title'=>$listproduk->nama, 'srcset'=>''.product_image_url($listproduk->gambar1, "thumb").' 768w, '.product_image_url($listproduk->gambar1, "large").' 1200w') ) }}
                                     </a>
                                     @if(is_outstok($listproduk))
                                     <div class="icon-info icon-sale">KOSONG</div>
@@ -32,16 +33,21 @@
                                 </div>
                                 <div class="prod-info">
                                     <div class="fl">
-                                        <h5 class="product-name">{{short_description($listproduk->nama,22)}}</h5>
+                                        <h5 class="product-name">{{short_description($listproduk->nama,21)}}</h5>
                                         <span class="price">Harga : {{price($listproduk->hargaJual)}}</span>
                                     </div>
                                     <a href="{{product_url($listproduk)}}"><button class="buy-btn fr">Beli</button></a>
                                 </div>
                                 <div class="clr"></div>
                             </div>
-                        </li> 
+                        </li>
+                        @if($i % 2 == 0)
+                        <div class="clr visible-xs"></div>
+                        @endif
+                        {{-- */ $i++ /* --}}
                         @endforeach
                     </ul>
+                    <div class="clr"></div>
                     {{home_product()->links()}}
                     @else
                     <article class="text-center"><i>Produk tidak ditemukan</i></article>

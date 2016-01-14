@@ -42,24 +42,24 @@
             <div class="bank-logo col-sm-8">
                 @if(list_banks()->count() > 0)
                     @foreach(list_banks() as $value)
-                    <img src="{{bank_logo($value)}}" class="img-responsive" alt="{{$value->bankdefault->nama}}" title="Payment">
+                    <img src="{{bank_logo($value)}}" class="img-responsive" alt="{{$value->bankdefault->nama}}" title="{{$value->bankdefault->nama}}">
                     @endforeach
                 @endif
                 @if(count(list_payments()) > 0)
                     @foreach(list_payments() as $pay)
                         @if($pay->nama == 'paypal' && $pay->aktif == 1)
-                        <img class="img-responsive" src="{{url('img/bank/paypal.png')}}" alt="paypal" title="Payment" />
+                        <img class="img-responsive" src="{{url('img/bank/paypal.png')}}" alt="Paypal" title="Paypal" />
                         @endif
                         @if($pay->nama == 'ipaymu' && $pay->aktif == 1)
-                        <img class="img-responsive" src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" title="Payment" />
+                        <img class="img-responsive" src="{{url('img/bank/ipaymu.jpg')}}" alt="Ipaymu" title="Ipaymu" />
                         @endif
                         @if($pay->nama == 'bitcoin' && $pay->aktif == 1)
-                        <img class="img-responsive" src="{{url('img/bitcoin.png')}}" alt="bitcoin" title="Payment" />
+                        <img class="img-responsive" src="{{url('img/bitcoin.png')}}" alt="Bitcoin" title="Bitcoin" />
                         @endif
                     @endforeach
                 @endif
                 @if(count(list_dokus()) > 0 && list_dokus()->status == 1)
-                <img class="img-responsive" src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" title="Payment" />
+                <img class="img-responsive" src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" title="Doku" />
                 @endif
             </div>
             <div class="social-media">
