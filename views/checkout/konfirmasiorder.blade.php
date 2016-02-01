@@ -25,8 +25,8 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{{$checkouttype==1 ? prefixOrder().$order->kodeOrder : prefixOrder().$order->kodePreorder}}}</td>
-                            <td>{{$checkouttype==1 ? waktu($order->tanggalOrder) : waktu($order->tanggalPreorder)}}</td>
+                            <td>{{$checkouttype==1 ? prefixOrder().$order->kodeOrder : '-'}}</td>
+                            <td>{{$checkouttype==1 ? waktu($order->tanggalOrder) : '-'}}</td>
                             <td>
                                 <ul>
                                 @if ($checkouttype==1)
@@ -34,8 +34,7 @@
                                     <li class="items">{{$detail->produk->nama}} {{$detail->opsiSkuId !=0 ? '('.$detail->opsisku->opsi1.($detail->opsisku->opsi2 != '' ? ' / '.$detail->opsisku->opsi2:'').($detail->opsisku->opsi3 !='' ? ' / '.$detail->opsisku->opsi3:'').')':''}} - {{$detail->qty}}</li>
                                     @endforeach
                                 @else
-                                    <li class="items">{{$order->preorderdata->produk->nama}} ({{$order->opsiSkuId==0 ? 'No Opsi' : $order->opsisku->opsi1.($order->opsisku->opsi2!='' ? ' / '.$order->opsisku->opsi2:'').($order->opsisku->opsi3!='' ? ' / '.$order->opsisku->opsi3:'')}})
-                                     - {{$order->jumlah}}</li>
+                                    <li class="items">-</li>
                                 @endif
                                 </ul>
                             </td>
@@ -70,51 +69,32 @@
                                 @elseif($order->status==4)
                                 <span class="label label-default">Batal</span>
                                 @endif
-                            @else 
-                                @if($order->status==0)
-                                <span class="label label-warning">Pending</span>
-                                @elseif($order->status==1)
-                                <span class="label label-danger">Konfirmasi DP diterima</span>
-                                @elseif($order->status==2)
-                                <span class="label label-info">DP terbayar</span>
-                                @elseif($order->status==3)
-                                <span class="label label-info">Menunggu pelunasan</span>
-                                @elseif($order->status==4)
-                                <span class="label label-success">Pembayaran lunas</span>
-                                @elseif($order->status==5)
-                                <span class="label label-info">Terkirim</span>
-                                @elseif($order->status==6)
-                                <span class="label label-default">Batal</span>
-                                @elseif($order->status==7)
-                                <span class="label label-info">Konfirmasi Pelunasan diterima</span>
-                                @endif
                             @endif  
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+            <hr>
             <div class="row">
-                <div class="col-md-5">
-                @if($order->jenisPembayaran==1)
-                    @if($checkouttype==1)   
-                    {{-- */ $konfirmasi = 'konfirmasiorder/' /* --}}
-                    @else                         
-                    {{-- */ $konfirmasi = 'konfirmasipreorder/' /* --}}
-                    @endif
-                    {{Form::open(array('url'=> $konfirmasi.$order->id, 'method'=>'put'))}}                            
+                <div class="col-md-6 col-md-offset-3">
+                @if($order->jenisPembayaran == 1 && $order->status == 0)
+                    <h2 class="title" style="text-align: center;">Konfirmasi Pembayaran</h2>
+                    <hr>
+                    {{-- */ $checkouttype==1 ? $konfirmasi = 'konfirmasiorder/'.$order->id : '' /* --}}
+                    {{Form::open(array('url'=> $konfirmasi, 'method'=>'put'))}}                            
                         <div class="form-group">
                             <label  class="control-label"> Nama Pengirim:</label>
-                            <input type="text" class="form-control" placeholder="Nama Pengirim" name='nama' required>
+                            <input type="text" class="form-control" placeholder="Nama Pengirim" name="nama" required>
                         </div>
                         <div class="form-group">
                             <label  class="control-label"> No Rekening:</label>
-                            <input type="text" class="form-control" placeholder="No Rekening" name='noRekPengirim' required>
+                            <input type="text" class="form-control" placeholder="No Rekening" name="noRekPengirim" required>
                         </div>
                         <div class="form-group">
                             <label  class="control-label"> Rekening Tujuan:</label>
-                            <select name='bank' class="form-control">
-                                <option value=''>-- Pilih Bank Tujuan --</option>
+                            <select name="bank" class="form-control">
+                                <option value="">-- Pilih Bank Tujuan --</option>
                                 @foreach ($banktrans as $bank)
                                 <option value="{{$bank->id}}">{{$bank->bankdefault->nama}} - {{$bank->noRekening}} - A/n {{$bank->atasNama}}</option>
                                 @endforeach
@@ -123,12 +103,12 @@
                         <div class="form-group">
                             <label  class="control-label"> Jumlah:</label>
                             @if($checkouttype==1)        
-                            <input type="text" class="form-control" placeholder="Jumlah Transfer Dana" name='jumlah' value='{{$order->status==0 ? $order->total : ""}}' required>
+                            <input type="text" class="form-control" placeholder="Jumlah Transfer Dana" name="jumlah" value="{{$order->status==0 ? $order->total : ''}}" required>
                             @else
                                 @if($order->status < 2)
-                                <input class="form-control" placeholder="Jumlah pembayaran" type="text" name='jumlah' value='{{$order->dp}}' required>
+                                <input class="form-control" placeholder="Jumlah pembayaran" type="text" name="jumlah" value="{{$order->dp}}" required>
                                 @elseif(($order->status > 1 && $order->status < 4) || $order->status==7)
-                                <input class="form-control" placeholder="Jumlah pembayaran" type="text" name='jumlah' value='{{$order->total - $order->dp}}' required>
+                                <input class="form-control" placeholder="Jumlah pembayaran" type="text" name="jumlah" value="{{$order->total - $order->dp}}" required>
                                 @endif
                             @endif
                         </div>
@@ -142,7 +122,7 @@
             <h3><center>Paypal Payment Details</center></h3><br>
             <hr>
             <div class="table-responsive">
-                <table class='table table-bordered'>
+                <table class="table table-bordered">
                     <tr><td>Payment Status</td><td>:</td><td>{{$paymentinfo['payment_status']}}</td></tr>
                     <tr><td>Payment Date</td><td>:</td><td>{{$paymentinfo['payment_date']}}</td></tr>
                     <tr><td>Address Name</td><td>:</td><td>{{$paymentinfo['address_name']}}</td></tr>

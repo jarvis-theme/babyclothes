@@ -1,17 +1,19 @@
-  <div id="bg-slider">
+@if(slideshow()->count() > 0)
+<div id="bg-slider">
     <div id="da-slider" class="flexslider">
         <ul class="slides">
-        	@foreach (slideshow() as $val) 
+            @foreach (slideshow() as $val) 
             <li>
-                @if($val->text=='')
-            	<a href="#">
+                @if(!empty($val->url))
+                <a href="{{filter_link_url($val->url)}}" target="_blank">
                 @else
-                <a href="{{filter_link_url($val->text)}}" target="_blank">
+                <a href="#">
                 @endif
-            		<img src="{{slide_image_url($val->gambar)}}" width="1170" height="500" alt="Slide" />
-            	</a>
+                    <img src="{{slide_image_url($val->gambar)}}" alt="Slide" />
+                </a>
             </li>
             @endforeach 
         </ul>
     </div>
 </div>
+@endif

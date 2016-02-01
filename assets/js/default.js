@@ -4,19 +4,6 @@ define(['jquery','fancybox','flexslider','carousel','bootstrap','modernizr'], fu
         var self = this;
         self.run = function(){
             $(window).load(function() {
-                // PRELOADER
-                /*if ($('body').hasClass('hide')) {
-                    $('.preloader').fadeOut(1000, function(){
-                        setTimeout(function(){$('.preloader').remove(); },2000);
-                        $('body').removeClass('hide');
-                    });
-                    $('body').removeClass('hide');
-                }else {
-                    $('.preloader').fadeOut(1000, function(){
-                        $('.preloader').remove();
-                    });
-                }*/
-
                 // BIG SLIDER
                 $('#bg-slider .flexslider').flexslider({
                     animation: "slide",

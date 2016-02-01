@@ -67,7 +67,7 @@
                     <li>
                         <a href="{{product_url($bestproduk)}}">
                             <div class="img-block">
-                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'), $bestproduk->nama,array('width'=>'81','height'=>'64','title'=>$bestproduk->nama))}}
+                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'), $bestproduk->nama,array('class'=>'best','title'=>$bestproduk->nama))}}
                             </div>
                             <p class="product-name">{{short_description($bestproduk->nama,12)}}</p>
                             <p class="price">{{price($bestproduk->hargaJual)}}</p> 
@@ -107,7 +107,7 @@
                                 <div class="prod-container">
                                     <div class="image-container">
                                         <a href="{{product_url($listproduk)}}">
-                                            {{HTML::image(product_image_url($listproduk->gambar1,'medium'), $listproduk->nama, array("height"=>"258",'title'=>$listproduk->nama))}}
+                                            {{HTML::image(product_image_url($listproduk->gambar1,'medium'), $listproduk->nama, array('title'=>$listproduk->nama,'srcset'=>product_image_url($listproduk->gambar1, "thumb").' 768w, '.product_image_url($listproduk->gambar1, "large").' 1200w'))}}
                                         </a>
                                         @if(is_outstok($listproduk))
                                         <div class="icon-info icon-sale">KOSONG</div>

@@ -67,7 +67,7 @@
                     <li>
                         <a href="{{product_url($bestproduk)}}">
                             <div class="img-block">
-                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'), $bestproduk->nama,array('width'=>'81','height'=>'64','title'=>$bestproduk->nama))}}
+                                {{HTML::image(product_image_url($bestproduk->gambar1,'thumb'), $bestproduk->nama,array('class'=>'best','title'=>$bestproduk->nama))}}
                             </div>
                             <p class="product-name">{{short_description($bestproduk->nama,12)}}</p>
                             <p class="price">{{price($bestproduk->hargaJual)}}</p> 
@@ -101,7 +101,7 @@
                         <div id="prod-left" class="col-lg-6 col-xs-12 col-sm-6">
                             <div class="big-image">
                                 <img src="{{product_image_url($produk->gambar1,'medium')}}" width="374" alt="{{$produk->nama}}" />
-                                <a class="zoom fancybox" href="{{product_image_url($produk->gambar1,'large')}}" title="{{$produk->nama}}">&nbsp;</a>
+                                <a class="zoom fancybox" href="{{product_image_url($produk->gambar1,'medium')}}" title="{{$produk->nama}}">&nbsp;</a>
                             </div>
                             <div id="thumb-view">
                                 <ul id="thumb-list" class="owl-carousel owl-theme">
@@ -163,9 +163,9 @@
                                             <div class="form-group">
                                                 <label class="col-sm-4 control-label">Jumlah :</label>
                                                 <div class="col-sm-5">
-                                                    <button type='submit' class='qtyminus' field='qty' /><i class="fa fa-caret-left"></i></button>
-                                                    <input type='text' name='qty' value='1' class='qty' />
-                                                    <button type='button' value='+' class='qtyplus' field='qty' /><i class="fa fa-caret-right"></i></button>
+                                                    <button type="submit" class="qtyminus" field="qty" /><i class="fa fa-caret-left"></i></button>
+                                                    <input type="text" name="qty" value="1" class="qty" />
+                                                    <button type="button" value="+" class="qtyplus" field="qty" /><i class="fa fa-caret-right"></i></button>
                                                 </div>
                                             </div>
                                         </div>
