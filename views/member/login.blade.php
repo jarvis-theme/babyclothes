@@ -34,7 +34,7 @@
                                     <input type="text" placeholder="Email" name="email" class="form-control" value="{{Input::old('email')}}" required><br>
                                     <b>*Password</b><br>
                                     <input type="password" placeholder="Password" name="password" class="form-control" required><br>
-                                    <a href="{{url('member/forget-password')}}" class="forgot">Lupa Password?</a><br><br>
+                                    <a href="{{url('member/forget-password')}}" class="forgot">{{trans('content.login_admin.forget_password')}}?</a><br><br>
                                     <input type="submit" value="Login" class="btn btn-warning">
                                 </div>
                             </form>

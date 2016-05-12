@@ -13,13 +13,13 @@
                     <span>Jika anda telah memiliki akun, maka anda dapat langsung menuju <a href="{{url('member')}}"> halaman login</a></span>
                     {{Form::open(array('url'=>'member','method'=>'post','class'=>'form-horizontal register'))}}
                         <div class="form-group">
-                            <label class="col-md-3">Nama</label>
+                            <label class="col-md-3">{{trans('content.step2.name')}}</label>
                             <div class="col-md-9">
                                 <input type="text" class="form-control" name="nama" value="{{Input::old('nama')}}" required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3">Email</label>
+                            <label class="col-md-3">{{trans('content.step2.email')}}</label>
                             <div class="col-md-9">
                                 <input type="email" class="form-control" name="email" value="{{Input::old('email')}}" required>
                             </div>
@@ -37,37 +37,37 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3">Alamat</label>
+                            <label class="col-md-3">{{trans('content.step2.address')}}</label>
                             <div class="col-md-9">
                                 <textarea class="form-control" name="alamat" required>{{Input::old("alamat")}}</textarea>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3">Negara</label>
+                            <label class="col-md-3">{{trans('content.step2.country')}}</label>
                             <div class="col-md-9">
-                                {{Form::select('negara',array('' => '-- Pilih Negara --') + $negara, Input::old('negara'),array('required', "id"=>"negara", "data-rel"=>"chosen", "class"=>"form-control"))}}</td>
+                                {{Form::select('negara',array('' => '-- '.trans('content.step2.select_country').' --') + $negara, Input::old('negara'),array('required', "id"=>"negara", "data-rel"=>"chosen", "class"=>"form-control"))}}</td>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3">Provinsi</label>
+                            <label class="col-md-3">{{trans('content.step2.state')}}</label>
                             <div class="col-md-9">
-                                {{Form::select('provinsi',array('' => '-- Pilih Provinsi --') + $provinsi, Input::old("provinsi"),array('required', "id"=>"provinsi", "data-rel"=>"chosen", "class"=>"form-control"))}}
+                                {{Form::select('provinsi',array('' => '-- '.trans('content.step2.select_state').' --') + $provinsi, Input::old("provinsi"),array('required', "id"=>"provinsi", "data-rel"=>"chosen", "class"=>"form-control"))}}
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3">Kota</label>
+                            <label class="col-md-3">{{trans('content.step2.city')}}</label>
                             <div class="col-md-9">
-                                {{Form::select('kota',array('' => '-- Pilih Kota --') + $kota, Input::old("kota"),array('required', "id"=>"kota", "data-rel"=>"chosen", "class"=>"form-control"))}}
+                                {{Form::select('kota',array('' => '-- '.trans('content.step2.select_city').' --') + $kota, Input::old("kota"),array('required', "id"=>"kota", "data-rel"=>"chosen", "class"=>"form-control"))}}
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3">Kode Pos</label>
+                            <label class="col-md-3">{{trans('content.step2.poscode')}}</label>
                             <div class="col-md-9">
                                 <input type="text" class="form-control" name="kodepos" value="{{Input::old('kodepos')}}">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3">Telepon / HP</label>
+                            <label class="col-md-3">{{trans('content.step2.phone')}}</label>
                             <div class="col-md-9">
                                 <input type="text" class="form-control" name="telp" value="{{Input::old('telp')}}" required>
                             </div>
@@ -76,7 +76,7 @@
                             <label class="col-md-3">Captcha</label>
                             <div class="col-md-9">
                                 {{ HTML::image(Captcha::img(), 'Captcha image') }}
-                                {{Form::text('captcha','',array('class'=>'form-control captcha','placeholder'=>'Kode captcha'))}}
+                                {{Form::text('captcha','',array('class'=>'form-control captcha','placeholder'=>'Captcha'))}}
                             </div>
                         </div>
                         <div>

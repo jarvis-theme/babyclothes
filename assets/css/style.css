@@ -267,3 +267,11 @@ span.input-group-btn.btnlp{float: left}
 }
 
 .side-accor{margin: 10px 0}.detailmap{float:right;width:100%}
+center#paypal button[type="submit"] {
+    background: #019CDE;
+    border: none;
+    padding: 10px;
+    color: #fff;
+    border-radius: 5px;
+}
+center#paypal button[type="submit"]:hover { opacity: 0.6 }
