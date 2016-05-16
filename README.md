@@ -1,7 +1,7 @@
 Babyclothes
 ------------
 
-![babyclothes](http://jarvis-store.com/themes/master-tema/babyclothes/babyclothes-preview.jpg)
+![babyclothes](https://s3-ap-southeast-1.amazonaws.com/cdn2.jarvis-store.com/img/themes/babyclothes/babyclothes-preview.jpg)
 
 Babyclothes adalah template toko online yang bertemakan pakaian anak-anak. Template ini dilengkapi slider promo pada halaman utama, serta side banner dan fitur subscribe untuk mempromosikan produk anda.
 

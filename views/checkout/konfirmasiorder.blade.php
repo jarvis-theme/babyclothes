@@ -133,18 +133,27 @@
       
             @if($order->jenisPembayaran==2)
                 <h3 class="center">{{trans('content.step5.confirm_btn')}} Via Paypal</h3><br>
-                <p class="center">{{trans('content.step5.paypal')}}</p>
+                <p class="center">{{trans('content.step5.paypal')}}</p><br>
                 <center id="paypal">{{$paypalbutton}}</center>
+                <br>
+            @elseif($order->jenisPembayaran==5 && $order->status == 0)
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                    <center>
+                        <h3><strong>{{trans('content.step5.confirm_btn')}} DOKU MyShortCart</strong></h3><br>
+                        <p>{{trans('content.step5.doku')}}</p><br>
+                        {{ $doku_button }}
+                    </center>
+                </div>
                 <br>
             @elseif($order->jenisPembayaran==6)
                 @if($order->status == 0)
                 <h3 class="center">{{trans('content.step5.confirm_btn')}} Via Bitcoin</h3><br>
-                <p class="center">{{trans('content.step5.bitcoin')}}</p>
+                <p class="center">{{trans('content.step5.bitcoin')}}</p><br>
                 <center>{{$bitcoinbutton}}</center>
                 <br>
                 @endif
             @elseif($order->jenisPembayaran == 8 && $order->status == 0)
-                <h3 class="center">{{trans('content.step5.confirm_btn')}} Veritrans</h3>
+                <h3 class="center">{{trans('content.step5.confirm_btn')}} Veritrans</h3><br>
                 <p class="center">{{trans('content.step5.veritrans')}}</p><br>
                 <center>
                     <button class="btn btn-warning" onclick="location.href='{{ $veritrans_payment_url }}'">{{trans('content.step5.veritrans_btn')}}</button>
