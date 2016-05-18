@@ -1,9 +1,7 @@
 <?php
 return array(
 	"banner"=>true,
-	"layout" => array(
-		"index1"=>"Layout dengan sidebar"
-	),
+	"layout" => false,
 	"num_display" => array(
 		"home_product"=>"8",
 		"main_product"=>"9",

@@ -132,7 +132,7 @@
             @endif 
       
             @if($order->jenisPembayaran==2)
-                <h3 class="center">{{trans('content.step5.confirm_btn')}} Via Paypal</h3><br>
+                <h3 class="center">{{trans('content.step5.confirm_btn')}} Paypal</h3><br>
                 <p class="center">{{trans('content.step5.paypal')}}</p><br>
                 <center id="paypal">{{$paypalbutton}}</center>
                 <br>
@@ -145,13 +145,11 @@
                     </center>
                 </div>
                 <br>
-            @elseif($order->jenisPembayaran==6)
-                @if($order->status == 0)
-                <h3 class="center">{{trans('content.step5.confirm_btn')}} Via Bitcoin</h3><br>
+            @elseif($order->jenisPembayaran == 6 && $order->status == 0)
+                <h3 class="center">{{trans('content.step5.confirm_btn')}} Bitcoin</h3><br>
                 <p class="center">{{trans('content.step5.bitcoin')}}</p><br>
                 <center>{{$bitcoinbutton}}</center>
                 <br>
-                @endif
             @elseif($order->jenisPembayaran == 8 && $order->status == 0)
                 <h3 class="center">{{trans('content.step5.confirm_btn')}} Veritrans</h3><br>
                 <p class="center">{{trans('content.step5.veritrans')}}</p><br>
