@@ -133,26 +133,37 @@
       
             @if($order->jenisPembayaran==2)
                 <h3 class="center">{{trans('content.step5.confirm_btn')}} Paypal</h3><br>
-                <p class="center">{{trans('content.step5.paypal')}}</p><br>
+                <p class="center">{{trans('content.step5.paypal')}}</p>
                 <center id="paypal">{{$paypalbutton}}</center>
                 <br>
+            @elseif($order->jenisPembayaran==4) 
+                @if(($checkouttype==1 && $order->status < 2) || ($checkouttype==3 && ($order->status!=6)))
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                    <center>
+                        <h3>{{trans('content.step5.confirm_btn')}} iPaymu</h3><br>
+                        <p>{{trans('content.step5.ipaymu')}}</p>
+                        <a class="btn btn-info" href="{{url('ipaymu/'.$order->id)}}" target="_blank">{{trans('content.step5.ipaymu_btn')}}</a>
+                    </center>
+                    <br>
+                </div>
+                @endif
             @elseif($order->jenisPembayaran==5 && $order->status == 0)
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2">
                     <center>
                         <h3><strong>{{trans('content.step5.confirm_btn')}} DOKU MyShortCart</strong></h3><br>
-                        <p>{{trans('content.step5.doku')}}</p><br>
+                        <p>{{trans('content.step5.doku')}}</p>
                         {{ $doku_button }}
                     </center>
                 </div>
                 <br>
             @elseif($order->jenisPembayaran == 6 && $order->status == 0)
                 <h3 class="center">{{trans('content.step5.confirm_btn')}} Bitcoin</h3><br>
-                <p class="center">{{trans('content.step5.bitcoin')}}</p><br>
+                <p class="center">{{trans('content.step5.bitcoin')}}</p>
                 <center>{{$bitcoinbutton}}</center>
                 <br>
             @elseif($order->jenisPembayaran == 8 && $order->status == 0)
                 <h3 class="center">{{trans('content.step5.confirm_btn')}} Veritrans</h3><br>
-                <p class="center">{{trans('content.step5.veritrans')}}</p><br>
+                <p class="center">{{trans('content.step5.veritrans')}}</p>
                 <center>
                     <button class="btn btn-warning" onclick="location.href='{{ $veritrans_payment_url }}'">{{trans('content.step5.veritrans_btn')}}</button>
                 </center>
