@@ -36,13 +36,15 @@
                 </div>
                 @endif
             @endforeach
-            {{ Theme::partial('subscribe') }}   
+            {{ Theme::partial('subscribe') }} 
         </div>
         <div class="row sosial">
             <div class="bank-logo col-sm-8">
                 @if(list_banks()->count() > 0)
                     @foreach(list_banks() as $value)
-                    <img src="{{bank_logo($value)}}" class="img-responsive" alt="{{$value->bankdefault->nama}}" title="{{$value->bankdefault->nama}}">
+                        @if($value->status == 1)
+                        <img src="{{bank_logo($value)}}" class="img-responsive" alt="{{$value->bankdefault->nama}}" title="{{$value->bankdefault->nama}}">
+                        @endif
                     @endforeach
                 @endif
                 @if(count(list_payments()) > 0)
@@ -115,4 +117,4 @@
         <p>  &copy; {{ short_description(Theme::place('title'),80) }} {{date('Y')}} All Right Reserved. Powered by <a class="title-copyright" href="http://jarvis-store.com" target="_blank"> Jarvis Store</a></p>
     </div>
 </footer>
-{{pluginPowerup()}}
+{{pluginPowerup()}} 
