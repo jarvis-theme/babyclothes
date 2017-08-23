@@ -9,7 +9,7 @@
         <div id="left_sidebar" class="col-lg-3 col-xs-12 col-sm-4">
             <div id="categories" class="block">
                 <ul class="block-content">
-                    <li><a href="{{url('member')}}">Daftar Pembelian</a></li>                         
+                    <li><a href="{{url('member')}}">Daftar Pembelian</a></li>
                     <li><a href="{{url('member/profile/edit')}}">Ubah Profil</a></li>
                 </ul>
             </div>
@@ -37,7 +37,14 @@
                 <div class="form-group">
                     <label for="inputCountry" class="col-md-2 control-label">Negara</label>
                     <div class="col-md-4">
-                        {{Form::select('negara',array('' => '-- Pilih Negara --') + $negara, ($user ? $user->negara :(Input::old("negara") ? Input::old("negara") :"")), array('required'=>'', 'id'=>'negara', 'class'=>'form-control'))}}
+                        <select class="form-control" name="negara" id="negara" data-rel="chosen" required>
+                            <option selected>-- Pilih Negara --</option>
+                            @foreach ($negara as $key=>$item)
+                                @if(strtolower($item)=='indonesia')
+                                <option value="1" {{$user->negara==1 || Input::old("negara")==1 ? 'selected' : ''}}>{{$item}}</option>
+                                @endif
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">

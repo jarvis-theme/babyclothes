@@ -96,7 +96,7 @@
         </div>
         <div id="center_column" class="inner-bg col-lg-9 col-xs-12 col-sm-8">
             <div class="tabs-description">
-                <div class="col-md-12 col-xs-12" id="contact">         
+                <div class="col-md-12 col-xs-12" id="contact">
                     <div class="maps" >
                         <h2 class="title">Peta Lokasi</h2>
                         @if($kontak->lat!='0' || $kontak->lng!='0')
@@ -110,7 +110,6 @@
                 <div class="col-md-12">
                     <div class="contact-us" >
                         <div class="contact-desc">
-                            <br>
                             @if(!empty($kontak->alamat))
                                 <strong>Alamat Toko :</strong> {{$kontak->alamat}}<br>
                             @endif

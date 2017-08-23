@@ -45,7 +45,14 @@
                         <div class="form-group">
                             <label class="col-md-3">{{trans('content.step2.country')}}</label>
                             <div class="col-md-9">
-                                {{Form::select('negara',array('' => '-- '.trans('content.step2.select_country').' --') + $negara, Input::old('negara'),array('required', "id"=>"negara", "data-rel"=>"chosen", "class"=>"form-control"))}}</td>
+                                <select class="form-control" name="negara" id="negara" data-rel="chosen" required>
+                                    <option selected>-- Pilih Negara --</option>
+                                    @foreach ($negara as $key=>$item)
+                                        @if(strtolower($item)=='indonesia')
+                                        <option value="1" {{Input::old('negara')==1 ? 'selected' : ''}}>{{$item}}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">
@@ -80,7 +87,7 @@
                             </div>
                         </div>
                         <div>
-                            <input type="checkbox" name="readme" id="inlineCheckbox1" value="1" required> Saya telah membaca dan menyetujui 
+                            <input type="checkbox" name="readme" id="inlineCheckbox1" value="1" required checked> Saya telah membaca dan menyetujui 
                             <a id="tos" href="{{url('service')}}" target="_blank">Persyaratan Member</a></td>
                         </div>
                         <div class="register">

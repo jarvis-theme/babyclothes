@@ -78,7 +78,7 @@
                     <h2 class="title center">{{trans('content.step5.confirm_btn')}}</h2>
                     <hr>
                     {{-- */ $checkouttype==1 ? $konfirmasi = 'konfirmasiorder/'.$order->id : '' /* --}}
-                    {{Form::open(array('url'=> $konfirmasi, 'method'=>'put'))}}                            
+                    {{Form::open(array('url'=> $konfirmasi, 'method'=>'put'))}}
                         <div class="form-group">
                             <label  class="control-label"> Nama Pengirim:</label>
                             <input type="text" class="form-control" placeholder="Nama Pengirim" name="nama" required>
@@ -98,7 +98,7 @@
                         </div>
                         <div class="form-group">
                             <label  class="control-label"> Jumlah:</label>
-                            @if($checkouttype==1)        
+                            @if($checkouttype==1)
                             <input type="text" class="form-control" placeholder="Jumlah Transfer Dana" name="jumlah" value="{{$order->status==0 ? $order->total : ''}}" required>
                             @else
                                 @if($order->status < 2)
@@ -162,7 +162,7 @@
                 <center>{{$bitcoinbutton}}</center>
                 <br>
             @elseif($order->jenisPembayaran == 8 && $order->status == 0)
-                <h3 class="center">{{trans('content.step5.confirm_btn')}} Veritrans</h3><br>
+                <h3 class="center">{{trans('content.step5.confirm_btn')}} Midtrans</h3><br>
                 <p class="center">{{trans('content.step5.veritrans')}}</p>
                 <center>
                     <button class="btn btn-warning" onclick="location.href='{{ $veritrans_payment_url }}'">{{trans('content.step5.veritrans_btn')}}</button>

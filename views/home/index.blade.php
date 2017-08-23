@@ -18,7 +18,7 @@
                     <ul class="grid">
                         @foreach(home_product() as $listproduk)
                         <li class="item col-xs-6 col-sm-4 col-md-4 col-lg-3">
-                            <div class="prod-container">
+                            <div class="prod-container pb0">
                                 <div class="image-container">
                                     <a href="{{product_url($listproduk)}}">
                                         {{ HTML::image(product_image_url($listproduk->gambar1,'medium'),$listproduk->nama,array('title'=>$listproduk->nama, 'srcset'=>''.product_image_url($listproduk->gambar1, "thumb").' 768w, '.product_image_url($listproduk->gambar1, "large").' 1200w') ) }}
@@ -32,11 +32,11 @@
                                     @endif
                                 </div>
                                 <div class="prod-info">
-                                    <div class="fl">
+                                    <div>
                                         <h5 class="product-name">{{short_description($listproduk->nama,21)}}</h5>
                                         <span class="price">Harga : {{price($listproduk->hargaJual)}}</span>
                                     </div>
-                                    <a href="{{product_url($listproduk)}}"><button class="buy-btn fr">Beli</button></a>
+                                    <a href="{{product_url($listproduk)}}"><button class="buy-btn">Beli</button></a>
                                 </div>
                                 <div class="clr"></div>
                             </div>
